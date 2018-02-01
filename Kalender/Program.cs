@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kalender.PL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,12 +12,13 @@ namespace Kalender
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        public static string Name;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frm_Main());
         }
     }
 }

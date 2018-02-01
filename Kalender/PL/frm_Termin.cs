@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Kalender
+namespace Kalender.PL
 {
-    public partial class Form1 : Form
+    public partial class frm_Termin : Form
     {
-        public Form1()
+        public frm_Termin()
         {
             InitializeComponent();
+           
         }
+
+        
     }
 }
