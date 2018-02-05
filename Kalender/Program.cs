@@ -12,7 +12,7 @@ namespace Kalender
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        public static string Name;
+        public static int userID;
         [STAThread]
         static void Main()
         {

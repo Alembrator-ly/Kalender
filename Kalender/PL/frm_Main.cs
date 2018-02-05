@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Kalender.DAL;
@@ -16,6 +17,8 @@ namespace Kalender
 {
     public partial class frm_Main : Form
     {
+
+        DataAccessLayer DAL = new DataAccessLayer();
         //field from type this Form 
         private static frm_Main frm;
         
@@ -40,16 +43,35 @@ namespace Kalender
         public frm_Main()
         {
             InitializeComponent();
-            if (frm == null)
-                frm = this;
-
-            //Properties.Settings.Default.Reset();
-            String nl = Environment.NewLine;
-            //Make Instance from Class "DataAccessLayer" to call the functions
             DataAccessLayer DAL = new DataAccessLayer();
 
+            if (frm == null)
+                frm = this;
+            try
+            {
+                string selectQuery = "select * from tbl_users where userName = '" + Properties.Settings.Default.userName 
+                    + "' and userPass = '" + Properties.Settings.Default.Password + "'";
+                DataTable Dt = DAL.fetchData(selectQuery);
+                if (Dt.Rows.Count == 0)
+                {
+                    Properties.Settings.Default.Reset();
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            
+            //Make Instance from Class "DataAccessLayer" to call the functions
+
             // Connect to Database
-            MySqlConnection mySqlConnection = new MySqlConnection(DAL.myConnection("localhost","db_kalender",3306,"root","root"));
+            MySqlConnection mySqlConnection = DAL.myConnection();
             try
             {
                 mySqlConnection.Open();
@@ -93,6 +115,21 @@ namespace Kalender
         {
             frm_Termin frm = new frm_Termin();
             frm.ShowDialog();
+        }
+
+      
+
+        private void btn_AddKalender_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "insert into tbl_Kalender (kalenderName, userId) values('" + txt_KalenderName.Text + "'," + Properties.Settings.Default.userId + ")";
+                DAL.executing(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

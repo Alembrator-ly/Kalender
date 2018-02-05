@@ -33,7 +33,7 @@
             this.txtb_Password = new System.Windows.Forms.TextBox();
             this.lbl_Password = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
-            this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_Rigester = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_UserName
@@ -51,7 +51,7 @@
             // 
             this.txtb_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtb_UserName.Location = new System.Drawing.Point(91, 82);
-            this.txtb_UserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtb_UserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtb_UserName.Name = "txtb_UserName";
             this.txtb_UserName.Size = new System.Drawing.Size(355, 22);
             this.txtb_UserName.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             this.txtb_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtb_Password.Location = new System.Drawing.Point(91, 150);
-            this.txtb_Password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtb_Password.Margin = new System.Windows.Forms.Padding(4);
             this.txtb_Password.Name = "txtb_Password";
             this.txtb_Password.PasswordChar = '*';
             this.txtb_Password.Size = new System.Drawing.Size(355, 22);
@@ -80,7 +80,7 @@
             // btn_Login
             // 
             this.btn_Login.Location = new System.Drawing.Point(91, 194);
-            this.btn_Login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Login.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(161, 38);
             this.btn_Login.TabIndex = 4;
@@ -88,23 +88,23 @@
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
-            // btn_Cancel
+            // btn_Rigester
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(286, 194);
-            this.btn_Cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(161, 38);
-            this.btn_Cancel.TabIndex = 5;
-            this.btn_Cancel.Text = "Cancel";
-            this.btn_Cancel.UseVisualStyleBackColor = true;
-            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            this.btn_Rigester.Location = new System.Drawing.Point(286, 194);
+            this.btn_Rigester.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Rigester.Name = "btn_Rigester";
+            this.btn_Rigester.Size = new System.Drawing.Size(161, 38);
+            this.btn_Rigester.TabIndex = 5;
+            this.btn_Rigester.Text = "Register";
+            this.btn_Rigester.UseVisualStyleBackColor = true;
+            this.btn_Rigester.Click += new System.EventHandler(this.btn_Rigester_Click);
             // 
             // frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 306);
-            this.Controls.Add(this.btn_Cancel);
+            this.Controls.Add(this.btn_Rigester);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.txtb_Password);
             this.Controls.Add(this.lbl_Password);
@@ -112,7 +112,7 @@
             this.Controls.Add(this.lbl_UserName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_Login";
@@ -128,6 +128,6 @@
         private System.Windows.Forms.TextBox txtb_Password;
         private System.Windows.Forms.Label lbl_Password;
         private System.Windows.Forms.Button btn_Login;
-        private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.Button btn_Rigester;
     }
 }

@@ -117,6 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="contextMS_Kalender.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>110, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_AddKalender.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAj1JREFUOE+9
+        kc9PE0EUx/cvwLvevKsHhMpBxO1Ca8BQLnr14JGo8WA08WQk8WhMDJpoWGATTRObbdKtFdvS0kW6KLSr
+        2x9qNQZOdvFESTC2PueNM+wWWlI8+E2+mb7vvvfJm47wXxR8/e5QOJ49zso9CiUzJ6LRbBcr2+vHOU/X
+        ttRz9KWqPQon9F/r45eOYe02ZmpCr8fC2iTWOMPGm1UTPddq3t4GMegTE6AmF6E6PABYu/2dZPgNe1jW
+        2PT2XGEYR+TDOh/SbtwCNZ6BUl/3Doi71HcS1ESG9Nx052sM46gm9lZ5g9V/ClKBUdg4sxe40d8N6bEA
+        WKc9Tk5mGcbR5sjZn+7BgxhnGcaRuZq3zVUT/s15m2Ec5cqVKjGg35gFmH9rwkrxEz2xbpXxfpxlGEcY
+        8obgXBruKyFYNC16Yt0q4/04yzCOMOQNKbJBZMGAFatMT6xbZbwfZxnGEYa8IZLOwpT6CpbeF+mJ9e7s
+        WXIOgkYEXizHwCgU9v8PQ3EdHj4Pw1K+SE+seabnPsDl2esgyX7wyj7qYSXwW5J9Fxjqr9zA/R7ldvTu
+        Dij9bQEmlx/zui5N+QcYrrNHuacoTZuhEMpr4nmG6+xRHsRm6CBCdutOim6+xXAUWOHAdg4aGgXiNTnU
+        3rLp73HtKoiyz3ntXPnzaO5jxSKDX9rZKJa+nlfG6ux6FNh85aEnDNe5vNNDF8lwAwF4TdyMAdcGnw4e
+        Zm0HkzTj94myXyeQbWKbbDYrTo8cEQRB+ANo7y6X6hn1LQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="col_Titel.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -135,7 +154,6 @@
   <metadata name="ts_Main.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ts_btn_Termin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8

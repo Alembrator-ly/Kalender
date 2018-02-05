@@ -6,55 +6,66 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using MySql.Data;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Kalender.DAL
 {
     class DataAccessLayer
     {
 
-        private string host;
-        private string database;
-
-        private MySqlConnection connection;
-
-
-        //public void connect()
-        //{
-        //    MySqlConnectionStringBuilder csb = new MySqlConnectionStringBuilder();
-        //    csb.Server = host;
-        //    csb.Database = database;
-        //    csb.Port = 3306;
-        //    csb.UserID = "root";
-        //    csb.Password = "root";
-        //    string cs = csb.ToString();
-
-        //    this.connection = new MySqlConnection(cs);
-        //}
+        private DataTable Dt = new DataTable();
+        private MySqlCommand cmd;
 
         public void disconnect(MySqlConnection con)
         {
-            if (con.State ==ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
                 con.Close();
         }
 
-        //TODO: function to excute the query
-        public void transaction(string query)
+
+        public void executing(string query)
         {
-            
+            try
+            {
+                MySqlConnection Conn = myConnection();
+                cmd = new MySqlCommand(query, Conn);
+                if (Conn.State != ConnectionState.Open)
+                    Conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public DataTable fetchData(string selectQuery)
+        {
+            try
+            {
+                MySqlDataAdapter Da = new MySqlDataAdapter(selectQuery, myConnection());
+                Da.Fill(Dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return Dt;
         }
 
 
 
-        
-        public string myConnection(string host,string dbName, uint port, string userID, string userPassword)
+
+        public MySqlConnection myConnection()
         {
             MySqlConnectionStringBuilder ConnectionSB = new MySqlConnectionStringBuilder();
-            ConnectionSB.Server = host;
-            ConnectionSB.Database = dbName;
-            ConnectionSB.Port = port;
-            ConnectionSB.UserID = userID;
-            ConnectionSB.Password = userPassword;
-            return ConnectionSB.ToString();
+            ConnectionSB.Server = Properties.Settings.Default.host;
+            ConnectionSB.Database = Properties.Settings.Default.dbName;
+            ConnectionSB.Port = Properties.Settings.Default.port;
+            ConnectionSB.UserID = Properties.Settings.Default.db_userID;
+            ConnectionSB.Password = Properties.Settings.Default.userPassword;
+            string cs = ConnectionSB.ToString();
+            return new MySqlConnection(cs);
         }
 
     }
