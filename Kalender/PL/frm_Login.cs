@@ -21,13 +21,14 @@ namespace Kalender.PL
         public frm_Login()
         {
             InitializeComponent();
-            
+
         }
 
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtb_UserName.Text) && !string.IsNullOrWhiteSpace(txtb_Password.Text)) {
+            if (!string.IsNullOrWhiteSpace(txtb_UserName.Text) && !string.IsNullOrWhiteSpace(txtb_Password.Text))
+            {
                 string hashPassword = hv.Hash(txtb_Password.Text);
                 string selectQuery = "select * from tbl_users where userName = '" + txtb_UserName.Text + "' and userPass = '" + hashPassword + "'";
 
@@ -48,24 +49,39 @@ namespace Kalender.PL
                 {
                     MessageBox.Show("Password or User Name is wrong");
                 }
-            }else
+            }
+            else
                 MessageBox.Show("Username and Password must be not Empty");
         }
 
         private void btn_Rigester_Click(object sender, EventArgs e)
         {
-            
 
             if (!string.IsNullOrWhiteSpace(txtb_UserName.Text) && !string.IsNullOrWhiteSpace(txtb_Password.Text))
             {
-                string hashPassword = hv.Hash(txtb_Password.Text);
-                string query = "insert into tbl_users(userName,userPass) values ('" + txtb_UserName.Text + "','" + hashPassword + "')";
-                DAL.executing(query);
-                MessageBox.Show("Rigester successful");
+                int result;
+                try
+                {
+
+                    string hashPassword = hv.Hash(txtb_Password.Text);
+                    string query = "insert into tbl_users(userName,userPass) values ('" + txtb_UserName.Text + "','" + hashPassword + "')";
+                    DAL.executing(query, out result);
+                    if (result == 1)
+                        MessageBox.Show("Rigester successful");
+                    else
+                        MessageBox.Show("Rigester not successful");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
                 this.Close();
             }
             else
                 MessageBox.Show("Username and Password must be not Empty");
+
+
         }
 
 

@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Main));
             this.tabL_Main = new System.Windows.Forms.TableLayoutPanel();
             this.tabC_Main = new System.Windows.Forms.TabControl();
@@ -40,7 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.treeV_Kalender = new System.Windows.Forms.TreeView();
             this.contextMS_Kalender = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.contextMS_AddKalender = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMSItem_AddKalender = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_KalenderName = new System.Windows.Forms.TextBox();
             this.btn_AddKalender = new System.Windows.Forms.Button();
@@ -65,6 +70,9 @@
             this.erthtrhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ertherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thrtehToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_UserName = new System.Windows.Forms.Label();
+            this.contextMS_User = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMSItem_UserLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.tabL_Main.SuspendLayout();
             this.tabC_Main.SuspendLayout();
             this.tabP_Kalender.SuspendLayout();
@@ -83,6 +91,7 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.ts_Main.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.contextMS_User.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabL_Main
@@ -190,26 +199,35 @@
             // 
             // treeV_Kalender
             // 
+            this.treeV_Kalender.CheckBoxes = true;
             this.treeV_Kalender.ContextMenuStrip = this.contextMS_Kalender;
             this.treeV_Kalender.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeV_Kalender.Location = new System.Drawing.Point(10, 247);
             this.treeV_Kalender.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.treeV_Kalender.Name = "treeV_Kalender";
+            treeNode1.Name = "Node1";
+            treeNode1.Text = "Node1";
+            treeNode2.Name = "Node2";
+            treeNode2.Text = "Node2";
+            treeNode3.Name = "Node0";
+            treeNode3.Text = "Node0";
+            this.treeV_Kalender.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode3});
             this.treeV_Kalender.Size = new System.Drawing.Size(177, 429);
             this.treeV_Kalender.TabIndex = 3;
             // 
             // contextMS_Kalender
             // 
             this.contextMS_Kalender.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contextMS_AddKalender});
+            this.contextMSItem_AddKalender});
             this.contextMS_Kalender.Name = "contextMenuStrip1";
             this.contextMS_Kalender.Size = new System.Drawing.Size(184, 26);
             // 
-            // contextMS_AddKalender
+            // contextMSItem_AddKalender
             // 
-            this.contextMS_AddKalender.Name = "contextMS_AddKalender";
-            this.contextMS_AddKalender.Size = new System.Drawing.Size(183, 22);
-            this.contextMS_AddKalender.Text = "Kalender hinzufügen";
+            this.contextMSItem_AddKalender.Name = "contextMSItem_AddKalender";
+            this.contextMSItem_AddKalender.Size = new System.Drawing.Size(183, 22);
+            this.contextMSItem_AddKalender.Text = "Kalender hinzufügen";
             // 
             // tableLayoutPanel6
             // 
@@ -374,11 +392,13 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.97009F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.02991F));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 930F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanel1.Controls.Add(this.lbl_ConnectionState, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbl_OnOff, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_UserName, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 761);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -403,7 +423,7 @@
             // 
             this.lbl_OnOff.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_OnOff.AutoSize = true;
-            this.lbl_OnOff.Location = new System.Drawing.Point(122, 3);
+            this.lbl_OnOff.Location = new System.Drawing.Point(108, 3);
             this.lbl_OnOff.Name = "lbl_OnOff";
             this.lbl_OnOff.Size = new System.Drawing.Size(13, 13);
             this.lbl_OnOff.TabIndex = 3;
@@ -433,6 +453,31 @@
             // 
             this.thrtehToolStripMenuItem.Name = "thrtehToolStripMenuItem";
             this.thrtehToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // lbl_UserName
+            // 
+            this.lbl_UserName.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbl_UserName.AutoSize = true;
+            this.lbl_UserName.ContextMenuStrip = this.contextMS_User;
+            this.lbl_UserName.Location = new System.Drawing.Point(1140, 3);
+            this.lbl_UserName.Name = "lbl_UserName";
+            this.lbl_UserName.Size = new System.Drawing.Size(52, 13);
+            this.lbl_UserName.TabIndex = 4;
+            this.lbl_UserName.Text = "Benutzer:";
+            // 
+            // contextMS_User
+            // 
+            this.contextMS_User.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMSItem_UserLogout});
+            this.contextMS_User.Name = "contextMS_User";
+            this.contextMS_User.Size = new System.Drawing.Size(179, 26);
+            // 
+            // contextMSItem_UserLogout
+            // 
+            this.contextMSItem_UserLogout.Image = ((System.Drawing.Image)(resources.GetObject("contextMSItem_UserLogout.Image")));
+            this.contextMSItem_UserLogout.Name = "contextMSItem_UserLogout";
+            this.contextMSItem_UserLogout.Size = new System.Drawing.Size(178, 22);
+            this.contextMSItem_UserLogout.Text = "Benutzer Abmelden";
             // 
             // frm_Main
             // 
@@ -466,6 +511,7 @@
             this.ts_Main.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.contextMS_User.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -502,11 +548,14 @@
         public System.Windows.Forms.ToolStripButton ts_btn_Termin;
         public System.Windows.Forms.ToolStripButton ts_btn_Login;
         private System.Windows.Forms.ContextMenuStrip contextMS_Kalender;
-        private System.Windows.Forms.ToolStripMenuItem contextMS_AddKalender;
+        private System.Windows.Forms.ToolStripMenuItem contextMSItem_AddKalender;
         private System.Windows.Forms.TreeView treeV_Kalender;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TextBox txt_KalenderName;
         private System.Windows.Forms.Button btn_AddKalender;
+        private System.Windows.Forms.Label lbl_UserName;
+        private System.Windows.Forms.ContextMenuStrip contextMS_User;
+        private System.Windows.Forms.ToolStripMenuItem contextMSItem_UserLogout;
     }
 }
 

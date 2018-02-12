@@ -21,7 +21,7 @@ namespace Kalender
         DataAccessLayer DAL = new DataAccessLayer();
         //field from type this Form 
         private static frm_Main frm;
-        
+
         //to get the form if is not null 
         public static frm_Main getMainForm {
             get {
@@ -33,7 +33,8 @@ namespace Kalender
                 return frm;
             }
         }
-        
+
+
 
         private static void Frm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -44,14 +45,15 @@ namespace Kalender
         {
             InitializeComponent();
             DataAccessLayer DAL = new DataAccessLayer();
-
             if (frm == null)
                 frm = this;
+
             try
             {
-                string selectQuery = "select * from tbl_users where userName = '" + Properties.Settings.Default.userName 
+                string selectQuery = "select * from tbl_users where userName = '" + Properties.Settings.Default.userName
                     + "' and userPass = '" + Properties.Settings.Default.Password + "'";
-                DataTable Dt = DAL.fetchData(selectQuery);
+                DataTable Dt = new DataTable();
+                Dt = DAL.fetchData(selectQuery);
                 if (Dt.Rows.Count == 0)
                 {
                     Properties.Settings.Default.Reset();
@@ -67,7 +69,7 @@ namespace Kalender
                 MessageBox.Show(ex.Message);
             }
 
-            
+
             //Make Instance from Class "DataAccessLayer" to call the functions
 
             // Connect to Database
@@ -82,9 +84,9 @@ namespace Kalender
                 //To write log file when some problem hapend with the connection to database
                 using (StreamWriter w = File.AppendText(Environment.CurrentDirectory + "\\log.txt"))
                 {
-                    w.WriteLine(DateTime.Now +"-->"+ ex.Message);
-                } 
-                
+                    w.WriteLine(DateTime.Now + "-->" + ex.Message);
+                }
+
                 lbl_OnOff.BackColor = Color.Red;
             }
 
@@ -102,7 +104,28 @@ namespace Kalender
             else
                 ts_btn_Login.Enabled = false;
 
-            
+            lbl_UserName.Text = "Benutzer: " + Properties.Settings.Default.userName;
+
+            try
+            {
+                TreeNode tn;
+                string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
+                DataTable Dt = DAL.fetchData(query);
+                for (int i = 0; i < Dt.Rows.Count; i++)
+                {
+                    tn = new TreeNode(Dt.Rows[i]["kalenderName"].ToString());
+                    tn.Text = Dt.Rows[i]["kalenderName"].ToString();
+                    treeV_Kalender.Nodes.Add(tn);
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ts_btn_Login_Click(object sender, EventArgs e)
@@ -117,19 +140,47 @@ namespace Kalender
             frm.ShowDialog();
         }
 
-      
+
 
         private void btn_AddKalender_Click(object sender, EventArgs e)
         {
+            List<string> listKalender = new List<string>();
+            int result;
+            treeV_Kalender.Nodes.Clear();
+
+
+                try
+                {
+                    string query = "insert into tbl_Kalender (kalenderName, userId) values('" + txt_KalenderName.Text + "'," + Properties.Settings.Default.userId + ")";
+                    Thread thread = new Thread(delegate() { DAL.executing(query, out result); });
+                    thread.Start();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             try
             {
-                string query = "insert into tbl_Kalender (kalenderName, userId) values('" + txt_KalenderName.Text + "'," + Properties.Settings.Default.userId + ")";
-                DAL.executing(query);
+                TreeNode tn;
+                string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
+                DataTable Dt = DAL.fetchData(query);
+                for (int i = 0; i < Dt.Rows.Count; i++)
+                {
+                    tn = new TreeNode(Dt.Rows[i]["kalenderName"].ToString());
+                    tn.Text = Dt.Rows[i]["kalenderName"].ToString();
+                    treeV_Kalender.Nodes.Add(tn);
+                }
+
+
+
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show(ex.Message);
             }
+
         }
     }
 }

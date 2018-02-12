@@ -23,7 +23,7 @@ namespace Kalender.DAL
         }
 
 
-        public void executing(string query)
+        public void executing(string query,out int result)
         {
             try
             {
@@ -32,10 +32,13 @@ namespace Kalender.DAL
                 if (Conn.State != ConnectionState.Open)
                     Conn.Open();
                 cmd.ExecuteNonQuery();
+                result = 1;
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                result = 0;
             }
         }
 
