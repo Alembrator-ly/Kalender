@@ -65,14 +65,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_ConnectionState = new System.Windows.Forms.Label();
             this.lbl_OnOff = new System.Windows.Forms.Label();
+            this.lbl_UserName = new System.Windows.Forms.Label();
+            this.contextMS_User = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMSItem_UserLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.gfhfdhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sdthgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erthtrhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ertherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thrtehToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbl_UserName = new System.Windows.Forms.Label();
-            this.contextMS_User = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.contextMSItem_UserLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.tabL_Main.SuspendLayout();
             this.tabC_Main.SuspendLayout();
             this.tabP_Kalender.SuspendLayout();
@@ -106,7 +106,7 @@
             this.tabL_Main.RowCount = 2;
             this.tabL_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tabL_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tabL_Main.Size = new System.Drawing.Size(1201, 784);
+            this.tabL_Main.Size = new System.Drawing.Size(1201, 781);
             this.tabL_Main.TabIndex = 0;
             // 
             // tabC_Main
@@ -116,7 +116,7 @@
             this.tabC_Main.Location = new System.Drawing.Point(3, 3);
             this.tabC_Main.Name = "tabC_Main";
             this.tabC_Main.SelectedIndex = 0;
-            this.tabC_Main.Size = new System.Drawing.Size(1195, 752);
+            this.tabC_Main.Size = new System.Drawing.Size(1195, 749);
             this.tabC_Main.TabIndex = 0;
             // 
             // tabP_Kalender
@@ -125,7 +125,7 @@
             this.tabP_Kalender.Location = new System.Drawing.Point(4, 22);
             this.tabP_Kalender.Name = "tabP_Kalender";
             this.tabP_Kalender.Padding = new System.Windows.Forms.Padding(3);
-            this.tabP_Kalender.Size = new System.Drawing.Size(1187, 726);
+            this.tabP_Kalender.Size = new System.Drawing.Size(1187, 723);
             this.tabP_Kalender.TabIndex = 0;
             this.tabP_Kalender.Text = "Kalender";
             this.tabP_Kalender.UseVisualStyleBackColor = true;
@@ -142,7 +142,7 @@
             this.tabL_Kalender.RowCount = 2;
             this.tabL_Kalender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tabL_Kalender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tabL_Kalender.Size = new System.Drawing.Size(1181, 720);
+            this.tabL_Kalender.Size = new System.Drawing.Size(1181, 717);
             this.tabL_Kalender.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -157,7 +157,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1175, 685);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1175, 682);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -176,7 +176,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 414F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(190, 679);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(190, 676);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // monthCalendar1
@@ -213,7 +213,7 @@
             treeNode3.Text = "Node0";
             this.treeV_Kalender.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode3});
-            this.treeV_Kalender.Size = new System.Drawing.Size(177, 429);
+            this.treeV_Kalender.Size = new System.Drawing.Size(177, 426);
             this.treeV_Kalender.TabIndex = 3;
             // 
             // contextMS_Kalender
@@ -272,7 +272,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(973, 679);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(973, 676);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // splitContainer1
@@ -289,8 +289,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer1.Size = new System.Drawing.Size(967, 643);
-            this.splitContainer1.SplitterDistance = 296;
+            this.splitContainer1.Size = new System.Drawing.Size(967, 640);
+            this.splitContainer1.SplitterDistance = 294;
             this.splitContainer1.TabIndex = 0;
             // 
             // dgv_ContentTermin
@@ -310,7 +310,7 @@
             this.dgv_ContentTermin.Name = "dgv_ContentTermin";
             this.dgv_ContentTermin.RowHeadersVisible = false;
             this.dgv_ContentTermin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ContentTermin.Size = new System.Drawing.Size(967, 296);
+            this.dgv_ContentTermin.Size = new System.Drawing.Size(967, 294);
             this.dgv_ContentTermin.TabIndex = 0;
             // 
             // col_Titel
@@ -344,7 +344,7 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(967, 343);
+            this.dataGridView2.Size = new System.Drawing.Size(967, 342);
             this.dataGridView2.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -395,12 +395,12 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 930F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel1.Controls.Add(this.lbl_ConnectionState, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbl_OnOff, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbl_UserName, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 761);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 758);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -429,31 +429,6 @@
             this.lbl_OnOff.TabIndex = 3;
             this.lbl_OnOff.Text = "  ";
             // 
-            // gfhfdhToolStripMenuItem
-            // 
-            this.gfhfdhToolStripMenuItem.Name = "gfhfdhToolStripMenuItem";
-            this.gfhfdhToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // sdthgToolStripMenuItem
-            // 
-            this.sdthgToolStripMenuItem.Name = "sdthgToolStripMenuItem";
-            this.sdthgToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // erthtrhToolStripMenuItem
-            // 
-            this.erthtrhToolStripMenuItem.Name = "erthtrhToolStripMenuItem";
-            this.erthtrhToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // ertherToolStripMenuItem
-            // 
-            this.ertherToolStripMenuItem.Name = "ertherToolStripMenuItem";
-            this.ertherToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // thrtehToolStripMenuItem
-            // 
-            this.thrtehToolStripMenuItem.Name = "thrtehToolStripMenuItem";
-            this.thrtehToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
             // lbl_UserName
             // 
             this.lbl_UserName.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -479,11 +454,36 @@
             this.contextMSItem_UserLogout.Size = new System.Drawing.Size(178, 22);
             this.contextMSItem_UserLogout.Text = "Benutzer Abmelden";
             // 
+            // gfhfdhToolStripMenuItem
+            // 
+            this.gfhfdhToolStripMenuItem.Name = "gfhfdhToolStripMenuItem";
+            this.gfhfdhToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // sdthgToolStripMenuItem
+            // 
+            this.sdthgToolStripMenuItem.Name = "sdthgToolStripMenuItem";
+            this.sdthgToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // erthtrhToolStripMenuItem
+            // 
+            this.erthtrhToolStripMenuItem.Name = "erthtrhToolStripMenuItem";
+            this.erthtrhToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // ertherToolStripMenuItem
+            // 
+            this.ertherToolStripMenuItem.Name = "ertherToolStripMenuItem";
+            this.ertherToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // thrtehToolStripMenuItem
+            // 
+            this.thrtehToolStripMenuItem.Name = "thrtehToolStripMenuItem";
+            this.thrtehToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 784);
+            this.ClientSize = new System.Drawing.Size(1201, 781);
             this.Controls.Add(this.tabL_Main);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Main";

@@ -48,6 +48,7 @@ namespace Kalender
             if (frm == null)
                 frm = this;
 
+            Properties.Settings.Default.Reset();
             try
             {
                 string selectQuery = "select * from tbl_users where userName = '" + Properties.Settings.Default.userName
