@@ -157,31 +157,31 @@
   <data name="ts_btn_Termin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH6SURBVEhL7ZbNSsNAFIWLijtX/ryAoojuFEU33abNNJmC
-        peJbaEUQhD6IfwhutDQTfQERX0Fdd6FIC6IbN1pb7w23TNrehCaUCuIHBwK5c05n5nYyiX/CyF3mhtOu
-        tWqWs5vCtbY9KTtvOnIF31FZ/4CgRQg4FsqqCSWbnEwlqvADDjNXmQUaFh9xLSaEI88MJb65ME5QWzfL
-        8lQ6cpxsopFyreVUST5z5j3JkU+mkktk1xu4XEKJd9YwgoySfEs7cp5sw8mWs1OwlxXOKJ6sinGxMUn2
-        weCe8gZahdu95v7dgSd85mr8glmfkD1PWtnroiQb3GC/qh+1Zgt85mraBJ7YMxTTDfxlztmBHYocjIKV
-        pJh24AAY7bWhYgWrzGvyJjlCcRpvmdkB3YoXDHsNpx7FaWCZt7hibB4096veqFNs03vufB/UcHjUUpzG
-        VHaBK8bOjQqO4bxgn3coTgMz3uWK+xmMk6M4zSCWGjLyFKeBZVjji7uF5i3wmavhxDYXfk/DPnt+xQu2
-        X4rF4hDFtYOfM35Qu+IEg/cRxXRjudYcHG9f3EC/ogeLz5QjZymGBw90frAWNg92Liq4kbTwZkL2wcCs
-        xyD8njOII/RCT7IP51cuAi0gfAYO9kfOsBdBMz0Yjpwmu2j8ymXPz8Cvt50M/EL/h0gkfgBjMya+a/Gp
-        RQAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH7SURBVEhL7ZbLSsNAFIaLijtXXl5AUUR3iqKbLnvJNJmC
+        peJbaEUQhD6INwQ3VpqJvoCIr6Cuu1CkBdGNG62N55RTJm1PQxJKBfGDHwI58/+dmdPJxP7xI1fKDacd
+        c9UoZzeFY243pay8YcsVfEdl/QOCFiHgWCizJpR0ORnKqMIPOMxcZRZoWHTEtZgQtjxLKOObC+MEtXWj
+        LE+lLcfJJhwpx1xOXcpnzjyQbPlkKLlEdsHA5RJKvLOGIZQoybe0LefJ1p9sOTsFe1nhjKLJrCQvNibJ
+        vje4p7yBVuF2z92/O2gKn7kar2DWJ2TPk1bWuijJBjfYq+pHzW2Bz1xNm8ATe4ZiuoG/zDk7sEOhg1Gw
+        khTTDhwAo0EbKlKwyrzGb+IjFKdpLjM7oFvRgmGv4dSjOA0s8xZXjM2D5l7VG3WKdZvPne97NRwetRSn
+        MZRV4Iqxc8OCYzgv2OcditPAjHe54n4G4+QoTjOIpYaMPMVpYBnW+OJuoXkLfOZqOLHNhd9Tv8+eV9GC
+        rZdisThEce3g54wf1K4oweB9RDHdmI45B8fbFzfQq/DB4jNly1mK4cEDnR+shc2DnYvq3UhaeDMh+97A
+        rMcg/J4ziCL0Qk+y9+dXLgItIHwGDvZHzjCIoJkekracJrtw/Mplz8vAr7edDPxC/4eIxX4A6HUmrXxy
+        M1gAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="ts_btn_Login.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIFSURBVEhL7ZbNSxtBGMZz8+MPqVAET54t1Ir4RaU5WNRL
-        sehN0UNRCCJS6LEItS2U1psgeFCI+zF+HtSDF7Eguu5MRGgvghpFN7sDGfeF2bLNvtlukmI85IEfCbvv
-        +zyZ2dnJxCp6dFr+JWo1yjs1xmc1ZhNi8kMAvsM1QnnHzlm2RpaXLjAj1BknzEoTxkU4VlpnzruNlKiW
-        7cVJM+16dzQmHhKKsXqaeSptCpM7dc3RRpkP60o3+XNpF03u1DaqhnWHG0ZHYdaNyuwGaRsueKYK5RQz
-        AhTDRq+HcBLpmRPmJJDmP0x+PRZT3wz0Xj506kxIe1zwyxTDusSaPRJfjkRTd1IMf9gXqumgNQEM62LF
-        yFbJmKDgPUUbfXjBQN/otlj6eYvW5eIutHYZE5TO+CesyY8/GHg5sC7md6/QWj/uoGZkTFDxwa3Lrjfr
-        IoyW19pfwUBLjyY+J3+jgR4atRUZE1R7r+rkmkbl2asV8X6OoqGAyviBjAmq1ODpHyYaCoQGFzvVbf1E
-        fF87RwM9Qqe6mMUVH9oUC3vXaK2f0MVFUrwVa/LjD36b2BPJowxal8sq5S9kTFCFbCDwqVO8JsC/NhCQ
-        u72Noc0S2C4/Lp6h9/Khp5wRaZ9fZfuTAK2xTB1MD2JSGOBBM0+kbTSV5SDgqSxHH09lOez59eDH24r+
-        j2Kxe0sqK2bawKS1AAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIKSURBVEhL7ZbPSxRhGMf3lvaHKEjQqXNCtkRWKO6hRC+R
+        1E3JgxQsESJ0lCA1iPImCB4MdufHu5oezIMXUYidad53Y0EvQrpFszvzwr7NA+/EtPPMNLtG22G/8GGX
+        mef5fvd9551331RH/53eH4mLGuW3NcYXNOYQYvFPAHyHa4TyWx/L9W5Zfn6BGaHuE8LsCmFcxGNXdObO
+        fCiJLtnemjTLueSNxsJDYjELX2p90qY5eVM3kGyUUdhnusWvSbtk8qb2imrYNm6YnDyzv6vMuSxt4wXP
+        VKGcYkaAYjro9Rg+J3rmhLlZpPkXz14b4vkbE70XhU7dp9IeF/wyxaieYs0+2aWiuDqcE5Mv9oVquWhN
+        CKP6NW/WL8iYsOA9RRsD+MHA2OMdsX74A61rxFtogzImLJ3xV1hTkGAwMPRgU6zsnqG1QbxBvZQxYWUe
+        bp/eub8p4kjf034LBtJ3NbGYO0YDfTTqKDImrMFRxW00TUr/SF7MLVM0FFAZP5AxYZ03ePadhYYCscGt
+        TvXNcSLebpyggT6xU93K4so82hKre9/Q2iCxi4uU+A2sKUgweCK7J3LFGlrXSIHy6zImrGY2EPjUKV4T
+        4k8bCMjb3qbRZglsl/NrZfReFHrJnZL20WrbnwRog9V6YXoQk+YAD1rrkbbJ1JaDgK+2HH18teWwF9Q/
+        P9529HeUSv0Ep1IrUPbwKJcAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="contextMS_User.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
