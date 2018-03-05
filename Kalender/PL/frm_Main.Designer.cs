@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Main));
             this.tabL_Main = new System.Windows.Forms.TableLayoutPanel();
             this.tabC_Main = new System.Windows.Forms.TabControl();
@@ -46,8 +41,9 @@
             this.treeV_Kalender = new System.Windows.Forms.TreeView();
             this.contextMS_Kalender = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMSItem_AddKalender = new System.Windows.Forms.ToolStripMenuItem();
+            this.kalenderLöschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.txt_KalenderName = new System.Windows.Forms.TextBox();
+            this.txtb_KalenderName = new System.Windows.Forms.TextBox();
             this.btn_AddKalender = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -106,7 +102,7 @@
             this.tabL_Main.RowCount = 2;
             this.tabL_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tabL_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tabL_Main.Size = new System.Drawing.Size(1201, 781);
+            this.tabL_Main.Size = new System.Drawing.Size(1201, 784);
             this.tabL_Main.TabIndex = 0;
             // 
             // tabC_Main
@@ -116,7 +112,7 @@
             this.tabC_Main.Location = new System.Drawing.Point(3, 3);
             this.tabC_Main.Name = "tabC_Main";
             this.tabC_Main.SelectedIndex = 0;
-            this.tabC_Main.Size = new System.Drawing.Size(1195, 749);
+            this.tabC_Main.Size = new System.Drawing.Size(1195, 752);
             this.tabC_Main.TabIndex = 0;
             // 
             // tabP_Kalender
@@ -125,7 +121,7 @@
             this.tabP_Kalender.Location = new System.Drawing.Point(4, 22);
             this.tabP_Kalender.Name = "tabP_Kalender";
             this.tabP_Kalender.Padding = new System.Windows.Forms.Padding(3);
-            this.tabP_Kalender.Size = new System.Drawing.Size(1187, 723);
+            this.tabP_Kalender.Size = new System.Drawing.Size(1187, 726);
             this.tabP_Kalender.TabIndex = 0;
             this.tabP_Kalender.Text = "Kalender";
             this.tabP_Kalender.UseVisualStyleBackColor = true;
@@ -142,7 +138,7 @@
             this.tabL_Kalender.RowCount = 2;
             this.tabL_Kalender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tabL_Kalender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tabL_Kalender.Size = new System.Drawing.Size(1181, 717);
+            this.tabL_Kalender.Size = new System.Drawing.Size(1181, 720);
             this.tabL_Kalender.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -157,7 +153,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1175, 682);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1175, 685);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -176,7 +172,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 414F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(190, 676);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(190, 679);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // monthCalendar1
@@ -205,23 +201,16 @@
             this.treeV_Kalender.Location = new System.Drawing.Point(10, 247);
             this.treeV_Kalender.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.treeV_Kalender.Name = "treeV_Kalender";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Node1";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "Node2";
-            treeNode3.Name = "Node0";
-            treeNode3.Text = "Node0";
-            this.treeV_Kalender.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            this.treeV_Kalender.Size = new System.Drawing.Size(177, 426);
+            this.treeV_Kalender.Size = new System.Drawing.Size(177, 429);
             this.treeV_Kalender.TabIndex = 3;
             // 
             // contextMS_Kalender
             // 
             this.contextMS_Kalender.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contextMSItem_AddKalender});
+            this.contextMSItem_AddKalender,
+            this.kalenderLöschenToolStripMenuItem});
             this.contextMS_Kalender.Name = "contextMenuStrip1";
-            this.contextMS_Kalender.Size = new System.Drawing.Size(184, 26);
+            this.contextMS_Kalender.Size = new System.Drawing.Size(184, 48);
             // 
             // contextMSItem_AddKalender
             // 
@@ -229,12 +218,19 @@
             this.contextMSItem_AddKalender.Size = new System.Drawing.Size(183, 22);
             this.contextMSItem_AddKalender.Text = "Kalender hinzufügen";
             // 
+            // kalenderLöschenToolStripMenuItem
+            // 
+            this.kalenderLöschenToolStripMenuItem.Name = "kalenderLöschenToolStripMenuItem";
+            this.kalenderLöschenToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.kalenderLöschenToolStripMenuItem.Text = "Kalender Löschen";
+            this.kalenderLöschenToolStripMenuItem.Click += new System.EventHandler(this.kalenderLöschenToolStripMenuItem_Click);
+            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.08696F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.91304F));
-            this.tableLayoutPanel6.Controls.Add(this.txt_KalenderName, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.txtb_KalenderName, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.btn_AddKalender, 1, 0);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 209);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -243,13 +239,13 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(184, 32);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
-            // txt_KalenderName
+            // txtb_KalenderName
             // 
-            this.txt_KalenderName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_KalenderName.Location = new System.Drawing.Point(3, 6);
-            this.txt_KalenderName.Name = "txt_KalenderName";
-            this.txt_KalenderName.Size = new System.Drawing.Size(134, 20);
-            this.txt_KalenderName.TabIndex = 0;
+            this.txtb_KalenderName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtb_KalenderName.Location = new System.Drawing.Point(3, 6);
+            this.txtb_KalenderName.Name = "txtb_KalenderName";
+            this.txtb_KalenderName.Size = new System.Drawing.Size(134, 20);
+            this.txtb_KalenderName.TabIndex = 0;
             // 
             // btn_AddKalender
             // 
@@ -272,7 +268,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(973, 676);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(973, 679);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // splitContainer1
@@ -289,8 +285,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer1.Size = new System.Drawing.Size(967, 640);
-            this.splitContainer1.SplitterDistance = 294;
+            this.splitContainer1.Size = new System.Drawing.Size(967, 643);
+            this.splitContainer1.SplitterDistance = 296;
             this.splitContainer1.TabIndex = 0;
             // 
             // dgv_ContentTermin
@@ -310,7 +306,7 @@
             this.dgv_ContentTermin.Name = "dgv_ContentTermin";
             this.dgv_ContentTermin.RowHeadersVisible = false;
             this.dgv_ContentTermin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ContentTermin.Size = new System.Drawing.Size(967, 294);
+            this.dgv_ContentTermin.Size = new System.Drawing.Size(967, 296);
             this.dgv_ContentTermin.TabIndex = 0;
             // 
             // col_Titel
@@ -344,7 +340,7 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(967, 342);
+            this.dataGridView2.Size = new System.Drawing.Size(967, 343);
             this.dataGridView2.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -400,7 +396,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lbl_OnOff, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbl_UserName, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 758);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 761);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -453,6 +449,7 @@
             this.contextMSItem_UserLogout.Name = "contextMSItem_UserLogout";
             this.contextMSItem_UserLogout.Size = new System.Drawing.Size(178, 22);
             this.contextMSItem_UserLogout.Text = "Benutzer Abmelden";
+            this.contextMSItem_UserLogout.Click += new System.EventHandler(this.contextMSItem_UserLogout_Click);
             // 
             // gfhfdhToolStripMenuItem
             // 
@@ -483,7 +480,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 781);
+            this.ClientSize = new System.Drawing.Size(1201, 784);
             this.Controls.Add(this.tabL_Main);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Main";
@@ -551,11 +548,12 @@
         private System.Windows.Forms.ToolStripMenuItem contextMSItem_AddKalender;
         private System.Windows.Forms.TreeView treeV_Kalender;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.TextBox txt_KalenderName;
+        private System.Windows.Forms.TextBox txtb_KalenderName;
         private System.Windows.Forms.Button btn_AddKalender;
         private System.Windows.Forms.Label lbl_UserName;
         private System.Windows.Forms.ContextMenuStrip contextMS_User;
         private System.Windows.Forms.ToolStripMenuItem contextMSItem_UserLogout;
+        private System.Windows.Forms.ToolStripMenuItem kalenderLöschenToolStripMenuItem;
     }
 }
 

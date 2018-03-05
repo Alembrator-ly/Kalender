@@ -42,6 +42,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtb_TerminDesc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btn_AddTermin = new System.Windows.Forms.Button();
+            this.btn_CancelTermin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -170,11 +172,33 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Beschreibung:";
             // 
+            // btn_AddTermin
+            // 
+            this.btn_AddTermin.Location = new System.Drawing.Point(342, 581);
+            this.btn_AddTermin.Name = "btn_AddTermin";
+            this.btn_AddTermin.Size = new System.Drawing.Size(75, 23);
+            this.btn_AddTermin.TabIndex = 14;
+            this.btn_AddTermin.Text = "Hinzufügen";
+            this.btn_AddTermin.UseVisualStyleBackColor = true;
+            this.btn_AddTermin.Click += new System.EventHandler(this.btn_AddTermin_Click);
+            // 
+            // btn_CancelTermin
+            // 
+            this.btn_CancelTermin.Location = new System.Drawing.Point(261, 581);
+            this.btn_CancelTermin.Name = "btn_CancelTermin";
+            this.btn_CancelTermin.Size = new System.Drawing.Size(75, 23);
+            this.btn_CancelTermin.TabIndex = 15;
+            this.btn_CancelTermin.Text = "Abbrechen";
+            this.btn_CancelTermin.UseVisualStyleBackColor = true;
+            this.btn_CancelTermin.Click += new System.EventHandler(this.btn_CancelTermin_Click);
+            // 
             // frm_Termin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 608);
+            this.ClientSize = new System.Drawing.Size(479, 647);
+            this.Controls.Add(this.btn_CancelTermin);
+            this.Controls.Add(this.btn_AddTermin);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtb_TerminDesc);
             this.Controls.Add(this.label6);
@@ -192,6 +216,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frm_Termin";
             this.Text = "Neuer Termin";
+            this.Load += new System.EventHandler(this.frm_Termin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +238,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtb_TerminDesc;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_AddTermin;
+        private System.Windows.Forms.Button btn_CancelTermin;
     }
 }

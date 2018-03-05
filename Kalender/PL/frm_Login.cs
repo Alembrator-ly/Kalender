@@ -59,24 +59,37 @@ namespace Kalender.PL
 
             if (!string.IsNullOrWhiteSpace(txtb_UserName.Text) && !string.IsNullOrWhiteSpace(txtb_Password.Text))
             {
-                int result;
-                try
+                string selectQuery = "select username from tbl_users ";
+                DataTable Dt = DAL.fetchData(selectQuery);
+                List<string> names = Dt.AsEnumerable().Select(r => r.Field<string>("username")).ToList();
+
+
+                if (!names.Contains(txtb_UserName.Text))
                 {
 
-                    string hashPassword = hv.Hash(txtb_Password.Text);
-                    string query = "insert into tbl_users(userName,userPass) values ('" + txtb_UserName.Text + "','" + hashPassword + "')";
-                    DAL.executing(query, out result);
-                    if (result == 1)
-                        MessageBox.Show("Rigester successful");
-                    else
-                        MessageBox.Show("Rigester not successful");
+                    int result;
+                    try
+                    {
+
+                        string hashPassword = hv.Hash(txtb_Password.Text);
+                        string query = "insert into tbl_users(userName,userPass) values ('" + txtb_UserName.Text + "','" + hashPassword + "')";
+                        DAL.executing(query, out result);
+                        if (result == 1)
+                            MessageBox.Show("Rigester successful");
+                        else
+                            MessageBox.Show("Rigester not successful");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    this.Close();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
-                    return;
+                    MessageBox.Show("the Name is Used");
                 }
-                this.Close();
             }
             else
                 MessageBox.Show("Username and Password must be not Empty");

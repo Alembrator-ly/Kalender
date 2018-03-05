@@ -49,17 +49,6 @@ namespace Kalender.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection kalenderList {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["kalenderList"]));
-            }
-            set {
-                this["kalenderList"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
         public string host {
             get {

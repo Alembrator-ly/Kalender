@@ -47,8 +47,7 @@ namespace Kalender
             DataAccessLayer DAL = new DataAccessLayer();
             if (frm == null)
                 frm = this;
-
-            Properties.Settings.Default.Reset();
+            //Properties.Settings.Default.Reset();
             try
             {
                 string selectQuery = "select * from tbl_users where userName = '" + Properties.Settings.Default.userName
@@ -112,12 +111,18 @@ namespace Kalender
                 TreeNode tn;
                 string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
                 DataTable Dt = DAL.fetchData(query);
-                for (int i = 0; i < Dt.Rows.Count; i++)
+
+
+                for (int i = 1; i < Dt.Rows.Count; i++)
                 {
                     tn = new TreeNode(Dt.Rows[i]["kalenderName"].ToString());
                     tn.Text = Dt.Rows[i]["kalenderName"].ToString();
+                    tn.Name = "tn_" + Dt.Rows[i]["kalenderName"].ToString();
+                    tn.Checked = true;
+                  
                     treeV_Kalender.Nodes.Add(tn);
                 }
+
 
 
 
@@ -145,43 +150,121 @@ namespace Kalender
 
         private void btn_AddKalender_Click(object sender, EventArgs e)
         {
-            List<string> listKalender = new List<string>();
-            int result;
-            treeV_Kalender.Nodes.Clear();
+            //to check the calendar if a found don't add the calendar else add the calendar
+            List<string> kalenders = new List<string>();
+            foreach (TreeNode node in treeV_Kalender.Nodes)
+            {
+                kalenders.Add(node.Text.ToUpper());
+            }
+            if (!kalenders.Contains(txtb_KalenderName.Text.ToUpper()))
+            {
 
-
-                try
+                if (!string.IsNullOrEmpty(txtb_KalenderName.Text))
                 {
-                    string query = "insert into tbl_Kalender (kalenderName, userId) values('" + txt_KalenderName.Text + "'," + Properties.Settings.Default.userId + ")";
-                    Thread thread = new Thread(delegate() { DAL.executing(query, out result); });
-                    thread.Start();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
 
+                    List<string> listKalender = new List<string>();
+                    int result;
+                    treeV_Kalender.Nodes.Clear();
+
+
+                    try
+                    {
+                        string query = "insert into tbl_Kalender (kalenderName, userId) values('" + txtb_KalenderName.Text + "'," + Properties.Settings.Default.userId + ")";
+                        Thread thread = new Thread(delegate () { DAL.executing(query, out result); });
+                        thread.Start();
+                        thread.Join();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    try
+                    {
+                        TreeNode tn;
+                        string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
+                        DataTable Dt = DAL.fetchData(query);
+                        for (int i = 0; i < Dt.Rows.Count; i++)
+                        {
+                            tn = new TreeNode(Dt.Rows[i]["kalenderName"].ToString());
+                            tn.Text = Dt.Rows[i]["kalenderName"].ToString();
+
+                            treeV_Kalender.Nodes.Add(tn);
+                        }
+
+                        Dt.Clear();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("schreiben Sie den Kalender Name Bitte!", "Warnung", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("calendar is used");
+            }
+        }
+
+        private void contextMSItem_UserLogout_Click(object sender, EventArgs e)
+        {
+            //TODO: add the code to logout the user
+        }
+
+        private void kalenderLöschenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             try
             {
-                TreeNode tn;
-                string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
-                DataTable Dt = DAL.fetchData(query);
-                for (int i = 0; i < Dt.Rows.Count; i++)
+                int output;
+                DAL.executing("delete from tbl_kalender where kalendername='" + treeV_Kalender.SelectedNode.Text + "'", out output);
+                if (output == 1)
                 {
-                    tn = new TreeNode(Dt.Rows[i]["kalenderName"].ToString());
-                    tn.Text = Dt.Rows[i]["kalenderName"].ToString();
-                    treeV_Kalender.Nodes.Add(tn);
+                    MessageBox.Show("Delete is succed");
+                    int id = DAL.rowCount("select count(*) from tbl_kalender") + 1;
+                    DAL.setId("alter table tbl_kalender auto_increment = " + id + "");
+                    treeV_Kalender.Nodes.Clear();
+                    try
+                    {
+                        TreeNode tn;
+                        string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
+                        DataTable Dt = DAL.fetchData(query);
+                        for (int i = 1; i < Dt.Rows.Count; i++)
+                        {
+                            tn = new TreeNode(Dt.Rows[i]["kalenderName"].ToString());
+                            tn.Text = Dt.Rows[i]["kalenderName"].ToString();
+
+                            treeV_Kalender.Nodes.Add(tn);
+                        }
+
+                        Dt.Clear();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-
-
-
+                else
+                {
+                    MessageBox.Show("Delete is not succed");
+                }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
 
+
         }
+
+        
     }
 }
