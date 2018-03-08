@@ -13,11 +13,11 @@ namespace Kalender.DAL
     class DataAccessLayer
     {
 
-        private DataTable Dt = new DataTable();
+        
         private MySqlCommand cmd;
         int id;
         /// <summary>
-        /// 
+        /// TODO: Write the Summary for the functions
         /// </summary>
         /// <param name="con"></param>
         public void disconnect(MySqlConnection con)
@@ -27,7 +27,7 @@ namespace Kalender.DAL
         }
 
         /// <summary>
-        /// 
+        /// TODO: Write the Summary for the functions
         /// </summary>
         /// <param name="query"></param>
         /// <param name="result"></param>
@@ -49,10 +49,10 @@ namespace Kalender.DAL
                 result = 0;
             }
         }
-        
-        
+
+
         /// <summary>
-        /// 
+        /// TODO: Write the Summary for the functions
         /// </summary>
         /// <param name="query"></param>
         public void executing(string query)
@@ -75,12 +75,13 @@ namespace Kalender.DAL
         }
 
         /// <summary>
-        /// 
+        /// TODO: Write the Summary for the functions
         /// </summary>
         /// <param name="selectQuery"></param>
         /// <returns></returns>
         public DataTable fetchData(string selectQuery)
         {
+             DataTable Dt = new DataTable();
             try
             {
                 MySqlDataAdapter Da = new MySqlDataAdapter(selectQuery, myConnection());
@@ -96,7 +97,7 @@ namespace Kalender.DAL
 
 
         /// <summary>
-        /// 
+        /// TODO: Write the Summary for the functions
         /// </summary>
         /// <returns></returns>
         public MySqlConnection myConnection()
@@ -111,7 +112,7 @@ namespace Kalender.DAL
             return new MySqlConnection(cs);
         }
         /// <summary>
-        /// 
+        /// TODO: Write the Summary for the functions
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
@@ -126,7 +127,8 @@ namespace Kalender.DAL
 
         public int rowCount(string query)
         {
-            Dt = new DataTable();
+             DataTable Dt = new DataTable();
+        Dt = new DataTable();
             MySqlDataAdapter Da = new MySqlDataAdapter(query, myConnection());
             Da.Fill(Dt);
             id = int.Parse( Dt.Rows[0][0].ToString());

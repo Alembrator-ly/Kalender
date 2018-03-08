@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Kalender.BL;
 using Kalender.DAL;
 using Kalender.PL;
 using MySql.Data.MySqlClient;
@@ -19,6 +16,16 @@ namespace Kalender
     {
 
         DataAccessLayer DAL = new DataAccessLayer();
+        DataTable DtShowTermin = new DataTable();
+        DataTable DtAll = new DataTable();
+        ColorDialog colorDialog = new ColorDialog();
+        public static string  cbName="";
+        public static string cbTitel="";
+        //fuctions fuctions = new fuctions(cbName,cbTitel);
+        public string color = "255 255 255";
+        public int red = 0;
+        public int green = 0;
+        public int blue = 0;
         //field from type this Form 
         private static frm_Main frm;
 
@@ -70,7 +77,6 @@ namespace Kalender
             }
 
 
-            //Make Instance from Class "DataAccessLayer" to call the functions
 
             // Connect to Database
             MySqlConnection mySqlConnection = DAL.myConnection();
@@ -102,42 +108,101 @@ namespace Kalender
 
             }
             else
-                ts_btn_Login.Enabled = false;
+            {
+
+                ts_btn_Login.Text = "Abmelden";
+                ts_btn_Login.Name = "ts_btn_Abmelden";
+                ts_btn_Login.Image = Image.FromFile(Environment.CurrentDirectory + "\\icon\\Logout.png");
+                
+            }
 
             lbl_UserName.Text = "Benutzer: " + Properties.Settings.Default.userName;
 
+            //fuctions.cmbGenrator(red, green, blue, cbName, cbTitel);
             try
             {
-                TreeNode tn;
+
                 string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
                 DataTable Dt = DAL.fetchData(query);
 
 
-                for (int i = 1; i < Dt.Rows.Count; i++)
+                for (int i = 0; i < Dt.Rows.Count; i++)
                 {
-                    tn = new TreeNode(Dt.Rows[i]["kalenderName"].ToString());
-                    tn.Text = Dt.Rows[i]["kalenderName"].ToString();
-                    tn.Name = "tn_" + Dt.Rows[i]["kalenderName"].ToString();
-                    tn.Checked = true;
-                  
-                    treeV_Kalender.Nodes.Add(tn);
+                    string kalenderColor = Dt.Rows[i]["color"].ToString();
+                    string[] colorArray = kalenderColor.Split(' ');
+                    red = int.Parse(colorArray[0]);
+                    green = int.Parse(colorArray[1]);
+                    blue = int.Parse(colorArray[2]);
+
+                    CheckBox cb = new CheckBox();
+                    cb.Name = "cb_" + Dt.Rows[i]["kalenderName"].ToString();
+                    cb.Text = Dt.Rows[i]["kalenderName"].ToString();
+                    cb.BackColor = Color.FromArgb(red, green, blue);
+                    cb.CheckedChanged += Cb_Selected;
+                    cb.MouseHover += Item_MouseHover;
+                    cb.ContextMenuStrip = frm_Main.getMainForm.contextMS_Kalender;
+                    frm_Main.getMainForm.fLP_Kalender.Controls.Add(cb);
                 }
-
-
-
-
+                Dt.Clear();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
+            }
+
+
+        }
+
+        private void Cb_Selected(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            string kalenderName=checkBox.Text;
+            string query = "SELECT t.Titel,t.started,t.status,t.ended, k.kalenderName " +
+                "from tbl_termin as t " +
+                "inner join tbl_kalender as k " +
+                "on t.kalenderId = k.kalender_Id " +
+                "where k.kalenderName = '"+kalenderName+"'";
+            
+            
+            if (checkBox.Checked==true)
+            {
+                DtShowTermin = DAL.fetchData(query);
+
+                DtAll.Merge(DtShowTermin);
+                dgv_ContentTermin.DataSource = DtAll;
+
+                //MessageBox.Show(checkBox.Name+"is checked");
+            }
+            else
+            {
+                foreach (DataRow row in DtAll.Rows)
+                {
+                    if (row["kalenderName"].ToString() == checkBox.Text)
+                    {
+                        row.Delete();
+                    }
+
+                }
+                DtAll.AcceptChanges();
+                
+                dgv_ContentTermin.DataSource = DtAll;
             }
         }
 
         private void ts_btn_Login_Click(object sender, EventArgs e)
         {
-            frm_Login frm = new frm_Login();
-            frm.ShowDialog();
+            if (this.ts_btn_Login.Name=="ts_btn_Login")
+            {
+
+                frm_Login frm = new frm_Login();
+                frm.ShowDialog();
+            }
+            else
+            {
+                Properties.Settings.Default.Reset();
+                Application.Exit();
+
+            }
         }
 
         private void ts_btn_Termin_Click(object sender, EventArgs e)
@@ -152,9 +217,10 @@ namespace Kalender
         {
             //to check the calendar if a found don't add the calendar else add the calendar
             List<string> kalenders = new List<string>();
-            foreach (TreeNode node in treeV_Kalender.Nodes)
+            foreach (CheckBox cb in fLP_Kalender.Controls )
             {
-                kalenders.Add(node.Text.ToUpper());
+                kalenders.Add(cb.Text.ToUpper());
+                //MessageBox.Show(cb.Text);
             }
             if (!kalenders.Contains(txtb_KalenderName.Text.ToUpper()))
             {
@@ -164,12 +230,12 @@ namespace Kalender
 
                     List<string> listKalender = new List<string>();
                     int result;
-                    treeV_Kalender.Nodes.Clear();
+                    fLP_Kalender.Controls.Clear();
 
 
                     try
                     {
-                        string query = "insert into tbl_Kalender (kalenderName, userId) values('" + txtb_KalenderName.Text + "'," + Properties.Settings.Default.userId + ")";
+                        string query = "insert into tbl_Kalender (kalenderName, userId,color) values('" + txtb_KalenderName.Text + "'," + Properties.Settings.Default.userId + ",'"+color+"')";
                         Thread thread = new Thread(delegate () { DAL.executing(query, out result); });
                         thread.Start();
                         thread.Join();
@@ -179,25 +245,35 @@ namespace Kalender
                         MessageBox.Show(ex.Message);
                     }
 
+                    //fuctions.cmbGenrator(red, green, blue, cbName, cbTitel);
                     try
                     {
-                        TreeNode tn;
+
                         string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
                         DataTable Dt = DAL.fetchData(query);
+
+
                         for (int i = 0; i < Dt.Rows.Count; i++)
                         {
-                            tn = new TreeNode(Dt.Rows[i]["kalenderName"].ToString());
-                            tn.Text = Dt.Rows[i]["kalenderName"].ToString();
+                            string kalenderColor = Dt.Rows[i]["color"].ToString();
+                            string[] colorArray = kalenderColor.Split(' ');
+                            red = int.Parse(colorArray[0]);
+                            green = int.Parse(colorArray[1]);
+                            blue = int.Parse(colorArray[2]);
 
-                            treeV_Kalender.Nodes.Add(tn);
+                            CheckBox cb = new CheckBox();
+                            cb.Name = "cb_" + Dt.Rows[i]["kalenderName"].ToString();
+                            cb.Text = Dt.Rows[i]["kalenderName"].ToString();
+                            cb.BackColor = Color.FromArgb(red, green, blue);
+                            cb.CheckedChanged += Cb_Selected;
+                            cb.MouseHover += Item_MouseHover;
+                            cb.ContextMenuStrip = frm_Main.getMainForm.contextMS_Kalender;
+                            frm_Main.getMainForm.fLP_Kalender.Controls.Add(cb);
                         }
-
                         Dt.Clear();
-
                     }
                     catch (Exception ex)
                     {
-
                         MessageBox.Show(ex.Message);
                     }
 
@@ -215,40 +291,65 @@ namespace Kalender
 
         private void contextMSItem_UserLogout_Click(object sender, EventArgs e)
         {
-            //TODO: add the code to logout the user
+            Properties.Settings.Default.Reset();
+            Application.Exit();            
         }
 
         private void kalenderLöschenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            List<Control> cl = new List<Control>();
+            foreach (Control item in fLP_Kalender.Controls)
+            {
+               
+                cl.Add(item);
+                
+            }
+
+
+
+
             try
             {
                 int output;
-                DAL.executing("delete from tbl_kalender where kalendername='" + treeV_Kalender.SelectedNode.Text + "'", out output);
+                CheckBox check = (CheckBox)cl[cl.FindIndex(x => x.Name == cbName)];
+                check.Checked = false;
+
+                DAL.executing("delete from tbl_kalender where kalendername='" + cbTitel +"'", out output);
                 if (output == 1)
                 {
                     MessageBox.Show("Delete is succed");
                     int id = DAL.rowCount("select count(*) from tbl_kalender") + 1;
                     DAL.setId("alter table tbl_kalender auto_increment = " + id + "");
-                    treeV_Kalender.Nodes.Clear();
+                    fLP_Kalender.Controls.Clear();
                     try
                     {
-                        TreeNode tn;
+
                         string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
                         DataTable Dt = DAL.fetchData(query);
-                        for (int i = 1; i < Dt.Rows.Count; i++)
+
+
+                        for (int i = 0; i < Dt.Rows.Count; i++)
                         {
-                            tn = new TreeNode(Dt.Rows[i]["kalenderName"].ToString());
-                            tn.Text = Dt.Rows[i]["kalenderName"].ToString();
+                            string kalenderColor = Dt.Rows[i]["color"].ToString();
+                            string[] colorArray = kalenderColor.Split(' ');
+                            red = int.Parse(colorArray[0]);
+                            green = int.Parse(colorArray[1]);
+                            blue = int.Parse(colorArray[2]);
 
-                            treeV_Kalender.Nodes.Add(tn);
+                            CheckBox cb = new CheckBox();
+                            cb.Name = "cb_" + Dt.Rows[i]["kalenderName"].ToString();
+                            cb.Text = Dt.Rows[i]["kalenderName"].ToString();
+                            cb.BackColor = Color.FromArgb(red, green, blue);
+                            cb.CheckedChanged += Cb_Selected;
+                            cb.MouseHover += Item_MouseHover;
+                            cb.ContextMenuStrip = frm_Main.getMainForm.contextMS_Kalender;
+                            frm_Main.getMainForm.fLP_Kalender.Controls.Add(cb);
                         }
-
                         Dt.Clear();
-
                     }
                     catch (Exception ex)
                     {
-
                         MessageBox.Show(ex.Message);
                     }
                 }
@@ -265,6 +366,58 @@ namespace Kalender
 
         }
 
-        
+        private void Item_MouseHover(object sender, EventArgs e)
+        {
+
+            CheckBox cb = (CheckBox)sender;
+            cbName = cb.Name;
+            cbTitel = cb.Text;
+
+        }
+
+        private void kalenderFarbeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                //MessageBox.Show(colorDialog.Color.R.ToString()+" "+ colorDialog.Color.G.ToString()+ " " + colorDialog.Color.B.ToString());
+                color = colorDialog.Color.R.ToString() + " " + colorDialog.Color.G.ToString() + " " + colorDialog.Color.B.ToString();
+                DataTable Dt = DAL.fetchData("select * from tbl_kalender where kalenderName='"+cbTitel+"';");
+                int KalenderId = int.Parse(Dt.Rows[0]["kalender_Id"].ToString());
+                string query = "update tbl_kalender set color='"+color+"' where kalender_Id="+KalenderId+"";
+                DAL.executing(query);
+
+                try
+                {
+
+                    string query1 = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
+                    DataTable Dt1 = DAL.fetchData(query1);
+
+                    fLP_Kalender.Controls.Clear();
+                    for (int i = 0; i < Dt1.Rows.Count; i++)
+                    {
+                        string kalenderColor = Dt1.Rows[i]["color"].ToString();
+                        string[] colorArray = kalenderColor.Split(' ');
+                        red = int.Parse(colorArray[0]);
+                        green = int.Parse(colorArray[1]);
+                        blue = int.Parse(colorArray[2]);
+
+                        CheckBox cb = new CheckBox();
+                        cb.Name = "cb_" + Dt1.Rows[i]["kalenderName"].ToString();
+                        cb.Text = Dt1.Rows[i]["kalenderName"].ToString();
+                        cb.BackColor = Color.FromArgb(red, green, blue);
+                        cb.CheckedChanged += Cb_Selected;
+                        cb.MouseHover += Item_MouseHover;
+                        cb.ContextMenuStrip = contextMS_Kalender;
+                        fLP_Kalender.Controls.Add(cb);
+                    }
+                    Dt.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            } 
+        }
     }
 }

@@ -37,23 +37,14 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.fLP_Kalender = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.treeV_Kalender = new System.Windows.Forms.TreeView();
-            this.contextMS_Kalender = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.contextMSItem_AddKalender = new System.Windows.Forms.ToolStripMenuItem();
-            this.kalenderLöschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.txtb_KalenderName = new System.Windows.Forms.TextBox();
             this.btn_AddKalender = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgv_ContentTermin = new System.Windows.Forms.DataGridView();
-            this.col_Titel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Beginn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Ende = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Kalendername = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.ts_Main = new System.Windows.Forms.ToolStrip();
             this.ts_btn_Termin = new System.Windows.Forms.ToolStripButton();
@@ -64,6 +55,10 @@
             this.lbl_UserName = new System.Windows.Forms.Label();
             this.contextMS_User = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMSItem_UserLogout = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMS_Kalender = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMSItem_AddKalender = new System.Windows.Forms.ToolStripMenuItem();
+            this.kalenderLöschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kalenderFarbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gfhfdhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sdthgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erthtrhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,19 +70,17 @@
             this.tabL_Kalender.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.contextMS_Kalender.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ContentTermin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.ts_Main.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMS_User.SuspendLayout();
+            this.contextMS_Kalender.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabL_Main
@@ -144,7 +137,7 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 201F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 0);
@@ -161,8 +154,8 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.monthCalendar1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.fLP_Kalender, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.treeV_Kalender, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
@@ -172,7 +165,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 414F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(190, 679);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(195, 679);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // monthCalendar1
@@ -181,6 +174,14 @@
             this.monthCalendar1.Location = new System.Drawing.Point(9, 9);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
+            // 
+            // fLP_Kalender
+            // 
+            this.fLP_Kalender.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fLP_Kalender.Location = new System.Drawing.Point(3, 247);
+            this.fLP_Kalender.Name = "fLP_Kalender";
+            this.fLP_Kalender.Size = new System.Drawing.Size(189, 429);
+            this.fLP_Kalender.TabIndex = 5;
             // 
             // label1
             // 
@@ -193,49 +194,18 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Kalender";
             // 
-            // treeV_Kalender
-            // 
-            this.treeV_Kalender.CheckBoxes = true;
-            this.treeV_Kalender.ContextMenuStrip = this.contextMS_Kalender;
-            this.treeV_Kalender.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeV_Kalender.Location = new System.Drawing.Point(10, 247);
-            this.treeV_Kalender.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.treeV_Kalender.Name = "treeV_Kalender";
-            this.treeV_Kalender.Size = new System.Drawing.Size(177, 429);
-            this.treeV_Kalender.TabIndex = 3;
-            // 
-            // contextMS_Kalender
-            // 
-            this.contextMS_Kalender.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contextMSItem_AddKalender,
-            this.kalenderLöschenToolStripMenuItem});
-            this.contextMS_Kalender.Name = "contextMenuStrip1";
-            this.contextMS_Kalender.Size = new System.Drawing.Size(184, 48);
-            // 
-            // contextMSItem_AddKalender
-            // 
-            this.contextMSItem_AddKalender.Name = "contextMSItem_AddKalender";
-            this.contextMSItem_AddKalender.Size = new System.Drawing.Size(183, 22);
-            this.contextMSItem_AddKalender.Text = "Kalender hinzufügen";
-            // 
-            // kalenderLöschenToolStripMenuItem
-            // 
-            this.kalenderLöschenToolStripMenuItem.Name = "kalenderLöschenToolStripMenuItem";
-            this.kalenderLöschenToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.kalenderLöschenToolStripMenuItem.Text = "Kalender Löschen";
-            this.kalenderLöschenToolStripMenuItem.Click += new System.EventHandler(this.kalenderLöschenToolStripMenuItem_Click);
-            // 
             // tableLayoutPanel6
             // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.08696F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.91304F));
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel6.Controls.Add(this.txtb_KalenderName, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.btn_AddKalender, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.btn_AddKalender, 2, 0);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 209);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(184, 32);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
@@ -244,15 +214,15 @@
             this.txtb_KalenderName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtb_KalenderName.Location = new System.Drawing.Point(3, 6);
             this.txtb_KalenderName.Name = "txtb_KalenderName";
-            this.txtb_KalenderName.Size = new System.Drawing.Size(134, 20);
+            this.txtb_KalenderName.Size = new System.Drawing.Size(106, 20);
             this.txtb_KalenderName.TabIndex = 0;
             // 
             // btn_AddKalender
             // 
             this.btn_AddKalender.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddKalender.Image")));
-            this.btn_AddKalender.Location = new System.Drawing.Point(143, 3);
+            this.btn_AddKalender.Location = new System.Drawing.Point(145, 3);
             this.btn_AddKalender.Name = "btn_AddKalender";
-            this.btn_AddKalender.Size = new System.Drawing.Size(37, 26);
+            this.btn_AddKalender.Size = new System.Drawing.Size(36, 26);
             this.btn_AddKalender.TabIndex = 1;
             this.btn_AddKalender.UseVisualStyleBackColor = true;
             this.btn_AddKalender.Click += new System.EventHandler(this.btn_AddKalender_Click);
@@ -263,16 +233,17 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.splitContainer1, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(199, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(204, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(973, 679);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(968, 679);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.Gray;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(3, 33);
             this.splitContainer1.Name = "splitContainer1";
@@ -284,9 +255,9 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer1.Size = new System.Drawing.Size(967, 643);
-            this.splitContainer1.SplitterDistance = 296;
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.PapayaWhip;
+            this.splitContainer1.Size = new System.Drawing.Size(962, 643);
+            this.splitContainer1.SplitterDistance = 531;
             this.splitContainer1.TabIndex = 0;
             // 
             // dgv_ContentTermin
@@ -294,54 +265,14 @@
             this.dgv_ContentTermin.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_ContentTermin.BackgroundColor = System.Drawing.Color.White;
             this.dgv_ContentTermin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ContentTermin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.col_Titel,
-            this.col_Beginn,
-            this.col_Ende,
-            this.col_Status,
-            this.col_Kalendername});
             this.dgv_ContentTermin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_ContentTermin.GridColor = System.Drawing.SystemColors.Control;
             this.dgv_ContentTermin.Location = new System.Drawing.Point(0, 0);
             this.dgv_ContentTermin.Name = "dgv_ContentTermin";
             this.dgv_ContentTermin.RowHeadersVisible = false;
             this.dgv_ContentTermin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ContentTermin.Size = new System.Drawing.Size(967, 296);
+            this.dgv_ContentTermin.Size = new System.Drawing.Size(962, 531);
             this.dgv_ContentTermin.TabIndex = 0;
-            // 
-            // col_Titel
-            // 
-            this.col_Titel.HeaderText = "Titel";
-            this.col_Titel.Name = "col_Titel";
-            // 
-            // col_Beginn
-            // 
-            this.col_Beginn.HeaderText = "Beginn";
-            this.col_Beginn.Name = "col_Beginn";
-            // 
-            // col_Ende
-            // 
-            this.col_Ende.HeaderText = "Ende";
-            this.col_Ende.Name = "col_Ende";
-            // 
-            // col_Status
-            // 
-            this.col_Status.HeaderText = "Status";
-            this.col_Status.Name = "col_Status";
-            // 
-            // col_Kalendername
-            // 
-            this.col_Kalendername.HeaderText = "Kalendername";
-            this.col_Kalendername.Name = "col_Kalendername";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(967, 343);
-            this.dataGridView2.TabIndex = 0;
             // 
             // tableLayoutPanel5
             // 
@@ -451,6 +382,35 @@
             this.contextMSItem_UserLogout.Text = "Benutzer Abmelden";
             this.contextMSItem_UserLogout.Click += new System.EventHandler(this.contextMSItem_UserLogout_Click);
             // 
+            // contextMS_Kalender
+            // 
+            this.contextMS_Kalender.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMSItem_AddKalender,
+            this.kalenderLöschenToolStripMenuItem,
+            this.kalenderFarbeToolStripMenuItem});
+            this.contextMS_Kalender.Name = "contextMenuStrip1";
+            this.contextMS_Kalender.Size = new System.Drawing.Size(184, 70);
+            // 
+            // contextMSItem_AddKalender
+            // 
+            this.contextMSItem_AddKalender.Name = "contextMSItem_AddKalender";
+            this.contextMSItem_AddKalender.Size = new System.Drawing.Size(183, 22);
+            this.contextMSItem_AddKalender.Text = "Kalender hinzufügen";
+            // 
+            // kalenderLöschenToolStripMenuItem
+            // 
+            this.kalenderLöschenToolStripMenuItem.Name = "kalenderLöschenToolStripMenuItem";
+            this.kalenderLöschenToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.kalenderLöschenToolStripMenuItem.Text = "Kalender Löschen";
+            this.kalenderLöschenToolStripMenuItem.Click += new System.EventHandler(this.kalenderLöschenToolStripMenuItem_Click);
+            // 
+            // kalenderFarbeToolStripMenuItem
+            // 
+            this.kalenderFarbeToolStripMenuItem.Name = "kalenderFarbeToolStripMenuItem";
+            this.kalenderFarbeToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.kalenderFarbeToolStripMenuItem.Text = "Kalender Farbe";
+            this.kalenderFarbeToolStripMenuItem.Click += new System.EventHandler(this.kalenderFarbeToolStripMenuItem_Click);
+            // 
             // gfhfdhToolStripMenuItem
             // 
             this.gfhfdhToolStripMenuItem.Name = "gfhfdhToolStripMenuItem";
@@ -492,16 +452,13 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.contextMS_Kalender.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ContentTermin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.ts_Main.ResumeLayout(false);
@@ -509,6 +466,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.contextMS_User.ResumeLayout(false);
+            this.contextMS_Kalender.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -533,27 +491,22 @@
         private System.Windows.Forms.ToolStripMenuItem ertherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thrtehToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView dgv_ContentTermin;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Titel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Beginn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Ende;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Kalendername;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.ToolStrip ts_Main;
         public System.Windows.Forms.ToolStripButton ts_btn_Termin;
         public System.Windows.Forms.ToolStripButton ts_btn_Login;
-        private System.Windows.Forms.ContextMenuStrip contextMS_Kalender;
         private System.Windows.Forms.ToolStripMenuItem contextMSItem_AddKalender;
-        private System.Windows.Forms.TreeView treeV_Kalender;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TextBox txtb_KalenderName;
         private System.Windows.Forms.Button btn_AddKalender;
-        private System.Windows.Forms.Label lbl_UserName;
         private System.Windows.Forms.ContextMenuStrip contextMS_User;
         private System.Windows.Forms.ToolStripMenuItem contextMSItem_UserLogout;
         private System.Windows.Forms.ToolStripMenuItem kalenderLöschenToolStripMenuItem;
+        public System.Windows.Forms.Label lbl_UserName;
+        public System.Windows.Forms.FlowLayoutPanel fLP_Kalender;
+        private System.Windows.Forms.ToolStripMenuItem kalenderFarbeToolStripMenuItem;
+        public System.Windows.Forms.ContextMenuStrip contextMS_Kalender;
+        public System.Windows.Forms.DataGridView dgv_ContentTermin;
     }
 }
 

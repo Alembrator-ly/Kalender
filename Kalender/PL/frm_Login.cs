@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Kalender.DAL;
 using System.Security.Cryptography;
+using Kalender.Properties;
 
 namespace Kalender.PL
 {
@@ -41,9 +42,46 @@ namespace Kalender.PL
                     Properties.Settings.Default.userName = txtb_UserName.Text;
                     Properties.Settings.Default.Password = hashPassword;
                     Properties.Settings.Default.userId = int.Parse(Dt.Rows[0][0].ToString());
+                    frm_Main.getMainForm.lbl_UserName.Text = "Benutzer: "+txtb_UserName.Text;
 
                     Properties.Settings.Default.Save();
                     this.Close();
+                    frm_Main.getMainForm.ts_btn_Login.Text = "Abmelden";
+                    frm_Main.getMainForm.ts_btn_Login.Name = "ts_btn_Abmelden";
+                    frm_Main.getMainForm.ts_btn_Login.Enabled = true;
+                    frm_Main.getMainForm.ts_btn_Login.Image = Image.FromFile(Environment.CurrentDirectory + "\\icon\\Logout.png");
+
+
+                    // To fetch the Calendar and add it to TreeViewer 
+                    try
+                    {
+                        //TreeNode tn;
+                        string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
+                        DataTable DtKalender = DAL.fetchData(query);
+
+                        frm_Main.getMainForm.fLP_Kalender.Controls.Clear();
+                        for (int i = 1; i < Dt.Rows.Count; i++)
+                        {
+
+                            CheckBox cb = new CheckBox();
+                            cb.Name = "cb_" + Dt.Rows[i]["kalenderName"].ToString();
+                            cb.Text = Dt.Rows[i]["kalenderName"].ToString();
+                            cb.CheckedChanged += Cb_Selected;
+                            cb.MouseHover += Item_MouseHover;
+                            cb.ContextMenuStrip = frm_Main.getMainForm.contextMS_Kalender;
+                            frm_Main.getMainForm.fLP_Kalender.Controls.Add(cb);
+
+                        }
+
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
                 }
                 else
                 {
@@ -52,6 +90,26 @@ namespace Kalender.PL
             }
             else
                 MessageBox.Show("Username and Password must be not Empty");
+        }
+
+        private void Item_MouseHover(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            //cbName = cb.Name;
+            //cbTitel = cb.Text;
+        }
+
+        private void Cb_Selected(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            if (checkBox.Checked == true)
+            {
+                MessageBox.Show(checkBox.Name + "is checked");
+            }
+            else
+            {
+                MessageBox.Show(checkBox.Name + "is unchecked");
+            }
         }
 
         private void btn_Rigester_Click(object sender, EventArgs e)

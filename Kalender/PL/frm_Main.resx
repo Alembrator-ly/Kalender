@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMS_Kalender.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>110, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btn_AddKalender.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -136,52 +133,37 @@
         Zm0HkzTj94myXyeQbWKbbDYrTo8cEQRB+ANo7y6X6hn1LQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="col_Titel.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="col_Beginn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="col_Ende.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="col_Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="col_Kalendername.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="ts_Main.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="ts_btn_Termin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH7SURBVEhL7ZbLSsNAFIaLijtXXl5AUUR3iqKbLnvJNJmC
-        peJbaEUQhD6INwQ3VpqJvoCIr6Cuu1CkBdGNG62N55RTJm1PQxJKBfGDHwI58/+dmdPJxP7xI1fKDacd
-        c9UoZzeFY243pay8YcsVfEdl/QOCFiHgWCizJpR0ORnKqMIPOMxcZRZoWHTEtZgQtjxLKOObC+MEtXWj
-        LE+lLcfJJhwpx1xOXcpnzjyQbPlkKLlEdsHA5RJKvLOGIZQoybe0LefJ1p9sOTsFe1nhjKLJrCQvNibJ
-        vje4p7yBVuF2z92/O2gKn7kar2DWJ2TPk1bWuijJBjfYq+pHzW2Bz1xNm8ATe4ZiuoG/zDk7sEOhg1Gw
-        khTTDhwAo0EbKlKwyrzGb+IjFKdpLjM7oFvRgmGv4dSjOA0s8xZXjM2D5l7VG3WKdZvPne97NRwetRSn
-        MZRV4Iqxc8OCYzgv2OcditPAjHe54n4G4+QoTjOIpYaMPMVpYBnW+OJuoXkLfOZqOLHNhd9Tv8+eV9GC
-        rZdisThEce3g54wf1K4oweB9RDHdmI45B8fbFzfQq/DB4jNly1mK4cEDnR+shc2DnYvq3UhaeDMh+97A
-        rMcg/J4ziCL0Qk+y9+dXLgItIHwGDvZHzjCIoJkekracJrtw/Mplz8vAr7edDPxC/4eIxX4A6HUmrXxy
-        M1gAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH8SURBVEhL7ZbfSgJBFMaloruu+vMCRRF1VxQG4WXqjusI
+        idFblBEEgQ+SJUEQFe5YLxDRK1TXXhShEHXTTZnbOcuRWd2juIsoRD/4YGHPfJ8zc5yd0D+dSF+mh+Ml
+        c9UoprZEydxxpJIZw5Ir+I7KegcELULAsVBmVShpczKUUYEfcJS4TizQsOCIGzEhLHkaUZEfLoxTWK3X
+        jKIsSEuOk40/YiVzOXYlXzjzrmTJZ0PJJbLrDlwuocQHa+hDG+fyPW7JebLtTKqYmoK9LHNGwWSWoxeb
+        k2TfHtxT3kAre7dvH9wfOsJnrsYtmPUJ2fPEVXJN5GWdG+xW5bNqN8BnrqZJ4Ik9QzFe4C9zxg5ske9g
+        FKwkxTQDB8Botw0VKFgl3iK3kRGK0zjLzA7wKlgw7DWcehSngWXe5oqxedDcrVq9RrG289z6vl3D4VFL
+        cRpDJbNcMXauX3AM5wX7vEtxGpjxHlfcy2CcHMVp+rHUkJGhOA0sQ5gv9grNG+AzV8OJbS78nnb67LkV
+        LDj5msvlhiiuGfyc8YOaFSQYvPMU48UsmXOiIL+5gW75DxZfMUvOUgwPHuj8YC1sHuxcVPtG0sKbCdm3
+        B2Y9BuEPnEEQoRd6kn1nBnIRaADhM3CwP3GG3Qia6TFqyWmy88dALntu+n69baXvF/o/RCj0C9R8JiB7
+        uQMyAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ts_btn_Login.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIKSURBVEhL7ZbPSxRhGMf3lvaHKEjQqXNCtkRWKO6hRC+R
-        1E3JgxQsESJ0lCA1iPImCB4MdufHu5oezIMXUYidad53Y0EvQrpFszvzwr7NA+/EtPPMNLtG22G/8GGX
-        mef5fvd9551331RH/53eH4mLGuW3NcYXNOYQYvFPAHyHa4TyWx/L9W5Zfn6BGaHuE8LsCmFcxGNXdObO
-        fCiJLtnemjTLueSNxsJDYjELX2p90qY5eVM3kGyUUdhnusWvSbtk8qb2imrYNm6YnDyzv6vMuSxt4wXP
-        VKGcYkaAYjro9Rg+J3rmhLlZpPkXz14b4vkbE70XhU7dp9IeF/wyxaieYs0+2aWiuDqcE5Mv9oVquWhN
-        CKP6NW/WL8iYsOA9RRsD+MHA2OMdsX74A61rxFtogzImLJ3xV1hTkGAwMPRgU6zsnqG1QbxBvZQxYWUe
-        bp/eub8p4kjf034LBtJ3NbGYO0YDfTTqKDImrMFRxW00TUr/SF7MLVM0FFAZP5AxYZ03ePadhYYCscGt
-        TvXNcSLebpyggT6xU93K4so82hKre9/Q2iCxi4uU+A2sKUgweCK7J3LFGlrXSIHy6zImrGY2EPjUKV4T
-        4k8bCMjb3qbRZglsl/NrZfReFHrJnZL20WrbnwRog9V6YXoQk+YAD1rrkbbJ1JaDgK+2HH18teWwF9Q/
-        P9529HeUSv0Ep1IrUPbwKJcAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAILSURBVEhL7ZbPSxtBFMdza+0f0oIIPfVsoVVEbanUQwv2
+        Ioq9VfRQLIRSitCjFFoVStubIPRgMNnsjj8P2oMX0dKadGciAb0ITdI2JrsDme6DWZlmX9ZNIq4Hv/Ah
+        Yfe97zczOzuZyKUunGIH4ppO+T2d8fc6swgx+XcAvsM1QnnvZrbSIsubF5gRak8QViwQxoU/xYLB7Oer
+        GXFVtjcm3bTanNGYeIgv6aX9cqu0qU/O1N0NNspaHOcNk9+RdsHkTO2t5Lf8MW4YnEX290+SWTelrb/g
+        mWqUU8wI0NIWet2Hn4GeOWF2FGk+4eVsSrz6kEbv1cKg9gtpjwt+mfajlMOaXaIze6K9Ly6evdkWSdNG
+        azykSr8S6coVGeMVvKdoo4IbDAyMbYiF3SJaV42z0HpkjFcG4++wJhU1GHgwtCLmvubRWhVnUG9ljFf9
+        I+u5+4Mrwo/Ox/p/wUDnI11Mxw/RQBedWpqM8aqnN2ZXmwbl9sOEmPxM0VAgyfiOjPGq2eDXn0w0FPAN
+        bnSqu58Q8XH5CA108Z3qRhZX/9M1Mb/1G61V8V1cJMO7sCYVNXg4uiXie2W0rpolyjtkjFf1bCDwaVC8
+        xsNpGwjI2d7G0WYJbJdTX7LovVoYGXtU2tdWaH8SoGVWvgHTg5jUB3jQ8nVpG0yhHARchXL0cRXKYU/V
+        uR9vL3U2ikT+AaqvKxEncSo+AAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="contextMS_User.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -202,6 +184,9 @@
         aNceHbnsBdny622ULb/Q/0NkMj8AzGfqs4BXxuIAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="contextMS_Kalender.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>110, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAMDAAAAEAIACoJQAAFgAAACgAAAAwAAAAYAAAAAEAIAAAAAAAUCUAAAAAAAAAAAAAAAAAAAAA
