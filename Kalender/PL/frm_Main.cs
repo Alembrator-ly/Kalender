@@ -119,6 +119,7 @@ namespace Kalender
             lbl_UserName.Text = "Benutzer: " + Properties.Settings.Default.userName;
 
             //fuctions.cmbGenrator(red, green, blue, cbName, cbTitel);
+            //TODO: All in one function
             try
             {
 
@@ -246,6 +247,7 @@ namespace Kalender
                     }
 
                     //fuctions.cmbGenrator(red, green, blue, cbName, cbTitel);
+                    //TODO: All in one function
                     try
                     {
 
@@ -322,6 +324,7 @@ namespace Kalender
                     int id = DAL.rowCount("select count(*) from tbl_kalender") + 1;
                     DAL.setId("alter table tbl_kalender auto_increment = " + id + "");
                     fLP_Kalender.Controls.Clear();
+                    //TODO: All in one function
                     try
                     {
 
@@ -386,6 +389,7 @@ namespace Kalender
                 string query = "update tbl_kalender set color='"+color+"' where kalender_Id="+KalenderId+"";
                 DAL.executing(query);
 
+                //TODO: All in one function
                 try
                 {
 
