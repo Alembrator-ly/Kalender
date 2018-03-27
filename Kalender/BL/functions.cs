@@ -22,6 +22,8 @@ namespace Kalender.BL
             cbName = _cbName;
             cbTitel = _cbTitel;
         }
+
+
         public void cmbGenrator(int red,int green,int blue,string _cbName, string _cbTitel)
         {
             cbName = _cbName;
@@ -58,7 +60,8 @@ namespace Kalender.BL
             }
         }
 
-        private void Item_MouseHover(object sender, EventArgs e)
+
+		private void Item_MouseHover(object sender, EventArgs e)
         {
 
             CheckBox cb = (CheckBox)sender;
@@ -86,6 +89,8 @@ namespace Kalender.BL
 
                 DtAll.Merge(DtShowTermin);
                 frm_Main.getMainForm.dgv_ContentTermin.DataSource = DtAll;
+
+
 
                 //MessageBox.Show(checkBox.Name+"is checked");
             }

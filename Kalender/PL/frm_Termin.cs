@@ -22,7 +22,6 @@ namespace Kalender.PL
             dtp_TimeEnd.Value = DateTime.Now.AddHours(2);
             dtp_DateStart.Value = DateTime.Now;
             dtp_DateEnd.Value = DateTime.Now.AddDays(2);
-
         }
 
         private void btn_CancelTermin_Click(object sender, EventArgs e)
@@ -80,5 +79,20 @@ namespace Kalender.PL
                 MessageBox.Show("Der Termintitel und Kalender muss nicht leer sein");
             }
         }
-    }
+
+		private void frm_Termin_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			frm_Main formMain = frm_Main.getMainForm;
+
+			foreach (CheckBox checkBox in formMain.fLP_Kalender.Controls)
+			{
+				checkBox.Checked = false;
+			}
+			foreach (CheckBox checkBox in formMain.fLP_Kalender.Controls)
+			{
+				checkBox.Checked = true;
+			}
+
+		}
+	}
 }

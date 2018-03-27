@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="ts_Main.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btn_AddKalender.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -139,16 +142,16 @@
   <data name="ts_btn_Termin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH8SURBVEhL7ZbfSgJBFMaloruu+vMCRRF1VxQG4WXqjusI
-        idFblBEEgQ+SJUEQFe5YLxDRK1TXXhShEHXTTZnbOcuRWd2juIsoRD/4YGHPfJ8zc5yd0D+dSF+mh+Ml
-        c9UoprZEydxxpJIZw5Ir+I7KegcELULAsVBmVShpczKUUYEfcJS4TizQsOCIGzEhLHkaUZEfLoxTWK3X
-        jKIsSEuOk40/YiVzOXYlXzjzrmTJZ0PJJbLrDlwuocQHa+hDG+fyPW7JebLtTKqYmoK9LHNGwWSWoxeb
-        k2TfHtxT3kAre7dvH9wfOsJnrsYtmPUJ2fPEVXJN5GWdG+xW5bNqN8BnrqZJ4Ik9QzFe4C9zxg5ske9g
-        FKwkxTQDB8Botw0VKFgl3iK3kRGK0zjLzA7wKlgw7DWcehSngWXe5oqxedDcrVq9RrG289z6vl3D4VFL
-        cRpDJbNcMXauX3AM5wX7vEtxGpjxHlfcy2CcHMVp+rHUkJGhOA0sQ5gv9grNG+AzV8OJbS78nnb67LkV
-        LDj5msvlhiiuGfyc8YOaFSQYvPMU48UsmXOiIL+5gW75DxZfMUvOUgwPHuj8YC1sHuxcVPtG0sKbCdm3
-        B2Y9BuEPnEEQoRd6kn1nBnIRaADhM3CwP3GG3Qia6TFqyWmy88dALntu+n69baXvF/o/RCj0C9R8JiB7
-        uQMyAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVEhL7ZbfSgJBFMaloruu+vMCRRF1ZyR142Xqjrsj
+        JEZvUUYQBL5FN/2RIIgKd7ZeIKJXqK69KEIh6qabMu0cOTK7ehR3EYXoBx8s7Jnvc2aOsxP6pxPpy/Rw
+        wjEjRiG1IRxzqy5lZQxbLuM7KusdELQIAcdCmWWhZI2ToYwS/IDD5HVygYYFR9yICWHL06iK/nBhnMIq
+        UjEKMi9tOU42/og75lL8Sr5w5l3Jls+GkmGy6w5cLqHEB2voQ2vn8j1hy3my7UyqkJqCvSxyRsFkFmMX
+        65Nk3x7cU95AK3u3W9u7368Ln7kat2DWJ2TPk1DWqjiQVW6wW6XPcq0BPnM1HoEn9gzFtAJ/mTN2YJN8
+        B6NgJSnGCxwAo902VKBglXyL3kZHKE5TX2Z2QKuCBcNew6lHcRpY5k2uGJsHzd2qVCsUW6s/N79v13B4
+        1FKcxlBWlivGzvULjuG8YJ+3KU4DM97hinsZjJOjOE0/lhoyMhSngWVY4YtbheYN8Jmr4cQ2F35PO332
+        3AoWbL3mcrkhivOCnzN+kFdBgsH7iGJaMR1zTuTlNzfQLf/B4ituy1mK4cEDnR+shc2DnYtq30haeDMh
+        +/bArMcg/IEzCCL0Qk+y78xALgINIHwGDvYnzrAbQTM9xmw5TXb+GMhlz03fr7fN9P1C/4cIhX4Bt/0l
+        /JWiH/gAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="ts_btn_Login.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -186,6 +189,9 @@
   </data>
   <metadata name="contextMS_Kalender.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>110, 17</value>
+  </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>412, 17</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

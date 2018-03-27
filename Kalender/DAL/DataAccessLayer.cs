@@ -75,10 +75,10 @@ namespace Kalender.DAL
         }
 
         /// <summary>
-        /// TODO: Write the Summary for the functions
+        /// to fetch Data from Database and put it in Datatable
         /// </summary>
-        /// <param name="selectQuery"></param>
-        /// <returns></returns>
+        /// <param name="selectQuery">sql statment</param>
+        /// <returns>Datatable</returns>
         public DataTable fetchData(string selectQuery)
         {
              DataTable Dt = new DataTable();
