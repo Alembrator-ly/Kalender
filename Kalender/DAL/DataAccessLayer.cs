@@ -17,9 +17,9 @@ namespace Kalender.DAL
         private MySqlCommand cmd;
         int id;
         /// <summary>
-        /// TODO: Write the Summary for the functions
+        /// To Disconnecting the Database Connenction 
         /// </summary>
-        /// <param name="con"></param>
+        /// <param name="con">the Connection Variable</param>
         public void disconnect(MySqlConnection con)
         {
             if (con.State == ConnectionState.Open)
@@ -27,10 +27,10 @@ namespace Kalender.DAL
         }
 
         /// <summary>
-        /// TODO: Write the Summary for the functions
+        /// to execute a query for example Delete, Insert Or Update
         /// </summary>
-        /// <param name="query"></param>
-        /// <param name="result"></param>
+        /// <param name="query">the sql statment as string passed</param>
+        /// <param name="result">if the operatur succed return 1 else 0</param>
         public void executing(string query,out int result)
         {
             try
@@ -52,9 +52,9 @@ namespace Kalender.DAL
 
 
         /// <summary>
-        /// TODO: Write the Summary for the functions
+        /// to execute a query for example Delete, Insert Or Update
         /// </summary>
-        /// <param name="query"></param>
+        /// <param name="query">the sql statment as string passed</param>
         public void executing(string query)
         {
             try

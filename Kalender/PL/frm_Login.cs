@@ -54,7 +54,8 @@ namespace Kalender.PL
                     frm_Main.getMainForm.ts_btn_Login.Text = "Abmelden";
                     frm_Main.getMainForm.ts_btn_Login.Name = "ts_btn_Abmelden";
                     frm_Main.getMainForm.ts_btn_Login.Enabled = true;
-                    frm_Main.getMainForm.ts_btn_Login.Image = Image.FromFile(Environment.CurrentDirectory + "\\icon\\Logout.png");
+                    frm_Main.getMainForm.btn_AddKalender.Enabled = true;
+                    //frm_Main.getMainForm.ts_btn_Login.Image = Image.FromFile(Environment.CurrentDirectory + "\\icon\\Logout.png");
 
 					
 
@@ -119,7 +120,7 @@ namespace Kalender.PL
 				"from tbl_termin as t " +
 				"inner join tbl_kalender as k " +
 				"on t.kalenderId = k.kalender_Id " +
-				"where k.kalenderName = '" + kalenderName + "'";
+				"where k.kalenderName = '" + kalenderName + "' and k.userid = "+Properties.Settings.Default.userId;
 
 
 			if (checkBox.Checked == true)

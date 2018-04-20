@@ -13,15 +13,23 @@ namespace Kalender.BL
 
     class functions
     {
-        // TODO: the code to genrate the checkbox 
-        DataAccessLayer DAL = new DataAccessLayer();
+		// TODO: the code to genrate the checkbox 
+		DataAccessLayer DAL = new DataAccessLayer();
         string cbName;
         string cbTitel;
-        public functions(string _cbName, string _cbTitel)
+
+
+		public functions()
+		{
+
+		}
+		public functions(string _cbName, string _cbTitel)
         {
             cbName = _cbName;
             cbTitel = _cbTitel;
         }
+
+		
 
 
         public void cmbGenrator(int red,int green,int blue,string _cbName, string _cbTitel)

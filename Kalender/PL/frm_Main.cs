@@ -21,6 +21,8 @@ namespace Kalender
         ColorDialog colorDialog = new ColorDialog();
         public static string  cbName="";
         public static string cbTitel="";
+		public int KalenderId;
+		CheckBox getCheckBoxInfo;
         //fuctions fuctions = new fuctions(cbName,cbTitel);
         public string color = "255 255 255";
         public int red = 0;
@@ -65,6 +67,7 @@ namespace Kalender
                 if (Dt.Rows.Count == 0)
                 {
                     Properties.Settings.Default.Reset();
+                    btn_AddKalender.Enabled = false;
                 }
                 else
                 {
@@ -113,7 +116,7 @@ namespace Kalender
 
                 ts_btn_Login.Text = "Abmelden";
                 ts_btn_Login.Name = "ts_btn_Abmelden";
-                ts_btn_Login.Image = Image.FromFile(Environment.CurrentDirectory + "\\icon\\Logout.png");
+                //ts_btn_Login.Image = Image.FromFile(Environment.CurrentDirectory + "\\icon\\Logout.png");
                 
             }
 
@@ -123,7 +126,7 @@ namespace Kalender
             //TODO: All in one function
             try
             {
-
+                fLP_Kalender.Controls.Clear();
                 string query = "select * from tbl_kalender where userId = " + Properties.Settings.Default.userId;
                 DataTable Dt = DAL.fetchData(query);
 
@@ -163,7 +166,7 @@ namespace Kalender
                 "from tbl_termin as t " +
                 "inner join tbl_kalender as k " +
                 "on t.kalenderId = k.kalender_Id " +
-                "where k.kalenderName = '"+kalenderName+"'";
+                "where k.kalenderName = '"+kalenderName+ "'and k.userid = " + Properties.Settings.Default.userId;
 			
             
             if (checkBox.Checked==true)
@@ -229,8 +232,6 @@ namespace Kalender
             frm_Termin frm = new frm_Termin();
             frm.ShowDialog();
         }
-
-
 
         private void btn_AddKalender_Click(object sender, EventArgs e)
         {
@@ -388,9 +389,9 @@ namespace Kalender
         private void Item_MouseHover(object sender, EventArgs e)
         {
 
-            CheckBox cb = (CheckBox)sender;
-            cbName = cb.Name;
-            cbTitel = cb.Text;
+            getCheckBoxInfo = (CheckBox)sender;
+            cbName = getCheckBoxInfo.Name;
+            cbTitel = getCheckBoxInfo.Text;
 
         }
 
@@ -401,7 +402,7 @@ namespace Kalender
 				DtAll.Clear();
 				//MessageBox.Show(colorDialog.Color.R.ToString()+" "+ colorDialog.Color.G.ToString()+ " " + colorDialog.Color.B.ToString());
 				color = colorDialog.Color.R.ToString() + " " + colorDialog.Color.G.ToString() + " " + colorDialog.Color.B.ToString();
-                DataTable Dt = DAL.fetchData("select * from tbl_kalender where kalenderName='"+cbTitel+"';");
+                DataTable Dt = DAL.fetchData("select * from tbl_kalender where kalenderName='"+cbTitel+"' and userid =" +Properties.Settings.Default.userId+";");
                 int KalenderId = int.Parse(Dt.Rows[0]["kalender_Id"].ToString());
                 string query = "update tbl_kalender set color='"+color+"' where kalender_Id="+KalenderId+"";
                 DAL.executing(query);
@@ -458,7 +459,7 @@ namespace Kalender
 			"from tbl_termin as t " +
 			"inner join tbl_kalender as k " +
 			"on t.kalenderId = k.kalender_Id " +
-			"where started like '" + monthCalendar1.SelectionStart.ToString("yyyy-MM-dd") + " %' ";
+			"where started like '" + monthCalendar1.SelectionStart.ToString("yyyy-MM-dd") + " %' and k.userId = "+Properties.Settings.Default.userId;
 			}
 			else
 			{
@@ -467,7 +468,7 @@ namespace Kalender
 			"inner join tbl_kalender as k " +
 			"on t.kalenderId = k.kalender_Id " +
 			"where started between '" + monthCalendar1.SelectionStart.ToString("yyyy-MM-dd") + " %' " +
-			"and  '" + monthCalendar1.SelectionEnd.ToString("yyyy-MM-dd") + " %'";
+			"and  '" + monthCalendar1.SelectionEnd.ToString("yyyy-MM-dd") + " %'and k.userId = " + Properties.Settings.Default.userId;
 			}
 			
 			dgv_ContentTermin.DataSource = DAL.fetchData(query);
@@ -496,6 +497,57 @@ namespace Kalender
 			toolTip1.Show("Wenn Sie die Termine zwischen zwei Datum zeigen möchten, \n" +
 				" Klicken Sie auf erste Datum und ziehen bis zweite Datum", monthCalendar1,point.X,point.Y,3000);
 		
+		}
+
+        private void txtb_Search_TextChanged(object sender, EventArgs e)
+        {
+            string query = "SELECT t.Titel, t.started, t.status, t.ended, k.kalendername " +
+                "from tbl_Kalender as K " +
+                "inner join tbl_Termin as t on k.kalender_Id = t.kalenderId " +
+                "where t.titel like '%" + txtb_Search.Text + "%' and " +
+                "k.userId = " + Properties.Settings.Default.userId;
+
+            try
+            {
+                dgv_ContentTermin.Refresh();
+                 dgv_ContentTermin.DataSource = DAL.fetchData(query);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void contextMSItem_ShareKalender_Click(object sender, EventArgs e)
+        {
+			DataTable Dt = DAL.fetchData("select * from tbl_Kalender where userid = " + Properties.Settings.Default.userId
+				+" and kalenderName = '"+getCheckBoxInfo.Text+"'");
+			KalenderId = Convert.ToInt32(Dt.Rows[0][0].ToString());
+			using (frm_CalenderShared frm=new frm_CalenderShared())
+            {
+                frm.ShowDialog();
+            }
+
+        }
+
+		private void ContextMS_Item_EditTermin_Click(object sender, EventArgs e)
+		{
+			using (frm_Termin frm=new frm_Termin())
+			{
+				frm.txtb_TerminTitel.Text = dgv_ContentTermin.CurrentRow.Cells[0].Value.ToString();
+				frm.cmb_Kalender.Text = dgv_ContentTermin.CurrentRow.Cells[4].Value.ToString();
+				frm.ShowDialog();
+
+			}
+		}
+
+		private void dgv_ContentTermin_MouseClick(object sender, MouseEventArgs e)
+		{
+			//if (e.Button == MouseButtons.Left)
+			//{
+			//	MessageBox.Show(dgv_ContentTermin.CurrentRow.Index.ToString());
+			//}
+				
 		}
 	}
 }

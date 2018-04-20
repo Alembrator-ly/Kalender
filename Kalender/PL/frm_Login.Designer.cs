@@ -84,7 +84,7 @@
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(161, 38);
             this.btn_Login.TabIndex = 4;
-            this.btn_Login.Text = "Login";
+            this.btn_Login.Text = "Anmelden";
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
@@ -95,7 +95,7 @@
             this.btn_Rigester.Name = "btn_Rigester";
             this.btn_Rigester.Size = new System.Drawing.Size(161, 38);
             this.btn_Rigester.TabIndex = 5;
-            this.btn_Rigester.Text = "Register";
+            this.btn_Rigester.Text = "Registrieren";
             this.btn_Rigester.UseVisualStyleBackColor = true;
             this.btn_Rigester.Click += new System.EventHandler(this.btn_Rigester_Click);
             // 
@@ -115,7 +115,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_Login";
+            this.Text = "Anmelden/ Registrieren";
             this.ResumeLayout(false);
             this.PerformLayout();
 

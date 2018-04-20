@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ts_Main.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btn_AddKalender.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -136,22 +133,25 @@
         Zm0HkzTj94myXyeQbWKbbDYrTo8cEQRB+ANo7y6X6hn1LQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="contextMS_Termin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>509, 17</value>
+  </metadata>
   <metadata name="ts_Main.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="ts_btn_Termin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVEhL7ZbfSgJBFMaloruu+vMCRRF1ZyR142Xqjrsj
-        JEZvUUYQBL5FN/2RIIgKd7ZeIKJXqK69KEIh6qabMu0cOTK7ehR3EYXoBx8s7Jnvc2aOsxP6pxPpy/Rw
-        wjEjRiG1IRxzqy5lZQxbLuM7KusdELQIAcdCmWWhZI2ToYwS/IDD5HVygYYFR9yICWHL06iK/nBhnMIq
-        UjEKMi9tOU42/og75lL8Sr5w5l3Jls+GkmGy6w5cLqHEB2voQ2vn8j1hy3my7UyqkJqCvSxyRsFkFmMX
-        65Nk3x7cU95AK3u3W9u7368Ln7kat2DWJ2TPk1DWqjiQVW6wW6XPcq0BPnM1HoEn9gzFtAJ/mTN2YJN8
-        B6NgJSnGCxwAo902VKBglXyL3kZHKE5TX2Z2QKuCBcNew6lHcRpY5k2uGJsHzd2qVCsUW6s/N79v13B4
-        1FKcxlBWlivGzvULjuG8YJ+3KU4DM97hinsZjJOjOE0/lhoyMhSngWVY4YtbheYN8Jmr4cQ2F35PO332
-        3AoWbL3mcrkhivOCnzN+kFdBgsH7iGJaMR1zTuTlNzfQLf/B4ituy1mK4cEDnR+shc2DnYtq30haeDMh
-        +/bArMcg/IEzCCL0Qk+y78xALgINIHwGDvYnzrAbQTM9xmw5TXb+GMhlz03fr7fN9P1C/4cIhX4Bt/0l
-        /JWiH/gAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH/SURBVEhL7ZbfSgJBFMaloruu+vMCRRF5ERRF3XiZuuPu
+        CInRW5QRBIGP0AP0R4IgKtyxXiCiV6iuvShCIeqmmzK3c+TIrHpW3EUUoh98sLBnvs+ZOc5O6J92pC5T
+        g/GCuWzkkxuiYG7VpKy0YcslfEdl3QOCwhBwLJRZFko6nAxllOAHHCauE3M0LDjiRowJW55GVOSHC+MU
+        VvMVIy9z0pajZOOPWMFcjF3JF868I9ny2VBygew6A5dLKPHBGvrQ2rl8j9tylmzbk8wnJ2Avi5xRMJnF
+        6MX6ONl7g3vKG2hl7nadvfv9mvCZq3ELZn1C9jxxZa2KA1nlBrtV+iw7dfCZq2kQeGLPUEwr8Jc5Ywc2
+        yXcwClaSYhqBA2C404YKFKwSb5HbyBDFaWrLzA5oVbBg2Gs49ShOA8u8yRVj86C5W5VqhWKd2nPze6+G
+        w6OW4jSGsjJcMXauX3AM5wX7vE1xGpjxDlfczWCcHMVperHUkJGmOA0swwpf3Co0r4PPXA0ntrnwe9ru
+        s+dWsGDrNZvNDlBcI/g54wc1KkgweB9RTCtmwZwROfnNDXTLf7D4itlymmJ48EDnB2th82DnorwbSQtv
+        JmTvDcx6BMIfOIMgQi/0JPv29OUiUAfCp+Bgf+IMOxE002PUlpNk54++XPbc9Px620zPL/R/iFDoF2wW
+        JdJF8+kZAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ts_btn_Login.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

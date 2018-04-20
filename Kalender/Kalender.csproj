@@ -95,6 +95,12 @@
     <Compile Include="BL\functions.cs" />
     <Compile Include="BL\hashValue.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
+    <Compile Include="PL\frm_CalenderShared.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\frm_CalenderShared.Designer.cs">
+      <DependentUpon>frm_CalenderShared.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\frm_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PL\frm_CalenderShared.resx">
+      <DependentUpon>frm_CalenderShared.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </EmbeddedResource>

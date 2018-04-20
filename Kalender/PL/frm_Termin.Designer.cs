@@ -228,18 +228,18 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtb_TerminTitel;
-        private System.Windows.Forms.ComboBox cmb_Kalender;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dtp_DateStart;
-        private System.Windows.Forms.DateTimePicker dtp_DateEnd;
-        private System.Windows.Forms.DateTimePicker dtp_TimeEnd;
-        private System.Windows.Forms.DateTimePicker dtp_TimeStart;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtb_TerminDesc;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btn_AddTermin;
-        private System.Windows.Forms.Button btn_CancelTermin;
-    }
+		public System.Windows.Forms.TextBox txtb_TerminTitel;
+		public System.Windows.Forms.ComboBox cmb_Kalender;
+		public System.Windows.Forms.DateTimePicker dtp_DateStart;
+		public System.Windows.Forms.DateTimePicker dtp_DateEnd;
+		public System.Windows.Forms.DateTimePicker dtp_TimeEnd;
+		public System.Windows.Forms.DateTimePicker dtp_TimeStart;
+		public System.Windows.Forms.TextBox txtb_TerminDesc;
+		public System.Windows.Forms.Button btn_AddTermin;
+		public System.Windows.Forms.Button btn_CancelTermin;
+	}
 }
