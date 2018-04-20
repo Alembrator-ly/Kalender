@@ -155,10 +155,95 @@ namespace Kalender
                 MessageBox.Show(ex.Message);
             }
 
+			try
+			{
+				fLP_SharedCalender.Controls.Clear();
+				string query = "select k.kalenderName, k.color from tbl_kalender as k " +
+					"inner join tbl_shared as s on k.kalender_Id = s.kalenderId " +
+					"where s.userId = "+Properties.Settings.Default.userId;
+				DataTable Dt = DAL.fetchData(query);
 
-        }
 
-        private void Cb_Selected(object sender, EventArgs e)
+				for (int i = 0; i < Dt.Rows.Count; i++)
+				{
+					string kalenderColor = Dt.Rows[i]["color"].ToString();
+					string[] colorArray = kalenderColor.Split(' ');
+					red = int.Parse(colorArray[0]);
+					green = int.Parse(colorArray[1]);
+					blue = int.Parse(colorArray[2]);
+
+					CheckBox cb = new CheckBox();
+					cb.Name = "cb_" + Dt.Rows[i]["kalenderName"].ToString();
+					cb.Text = Dt.Rows[i]["kalenderName"].ToString();
+					cb.BackColor = Color.FromArgb(red, green, blue);
+					cb.CheckedChanged += Cb_Shared_CheckedChanged;
+					cb.MouseHover += Item_MouseHover;
+					//cb.ContextMenuStrip = frm_Main.getMainForm.contextMS_Kalender;
+					fLP_SharedCalender.Controls.Add(cb);
+				}
+				Dt.Clear();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+
+		}
+
+		private void Cb_Shared_CheckedChanged(object sender, EventArgs e)
+		{
+			CheckBox checkBox = (CheckBox)sender;
+			string kalenderName = checkBox.Text;
+			string query = "SELECT t.Titel,t.started,t.status,t.ended, k.kalenderName, k.color " +
+				"from tbl_termin as t " +
+				"inner join tbl_kalender as k " +
+				"on t.kalenderId = k.kalender_Id " +
+				"where k.kalenderName = '" + kalenderName + "'" ;
+
+
+			if (checkBox.Checked == true)
+			{
+				DtShowTermin = DAL.fetchData(query);
+
+				DtAll.Merge(DtShowTermin);
+				dgv_ContentTermin.DataSource = DtAll;
+				dgv_ContentTermin.Columns["color"].Visible = false;
+
+			}
+			else
+			{
+				foreach (DataRow row in DtAll.Rows)
+				{
+					if (row["kalenderName"].ToString() == checkBox.Text)
+					{
+						row.Delete();
+					}
+
+				}
+				DtAll.AcceptChanges();
+
+				dgv_ContentTermin.DataSource = DtAll;
+
+			}
+
+			//To set rows color like calendar color
+			try
+			{
+				for (int i = 0; i < dgv_ContentTermin.Rows.Count; i++)
+				{
+					string rowColor = dgv_ContentTermin.Rows[i].Cells["color"].Value.ToString();
+					string[] colors = rowColor.Split(' ');
+					dgv_ContentTermin.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(int.Parse(colors[0]), int.Parse(colors[1]), int.Parse(colors[2]));
+				}
+			}
+			catch (Exception)
+			{
+
+
+			}
+		}
+
+		private void Cb_Selected(object sender, EventArgs e)
         {
             CheckBox checkBox = (CheckBox)sender;
             string kalenderName=checkBox.Text;

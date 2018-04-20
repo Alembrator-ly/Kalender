@@ -68,6 +68,7 @@
 			this.ertherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.thrtehToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.fLP_SharedCalender = new System.Windows.Forms.FlowLayoutPanel();
 			this.tabL_Main.SuspendLayout();
 			this.tabC_Main.SuspendLayout();
 			this.tabP_Kalender.SuspendLayout();
@@ -158,18 +159,20 @@
 			// 
 			this.tableLayoutPanel3.ColumnCount = 1;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Controls.Add(this.monthCalendar1, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.fLP_SharedCalender, 0, 4);
 			this.tableLayoutPanel3.Controls.Add(this.fLP_Kalender, 0, 3);
+			this.tableLayoutPanel3.Controls.Add(this.monthCalendar1, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.label1, 0, 1);
 			this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 0, 2);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.RowCount = 4;
+			this.tableLayoutPanel3.RowCount = 5;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 179F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 414F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 234F));
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(214, 679);
 			this.tableLayoutPanel3.TabIndex = 0;
 			// 
@@ -185,10 +188,10 @@
 			// 
 			// fLP_Kalender
 			// 
-			this.fLP_Kalender.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.fLP_Kalender.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.fLP_Kalender.Location = new System.Drawing.Point(3, 247);
 			this.fLP_Kalender.Name = "fLP_Kalender";
-			this.fLP_Kalender.Size = new System.Drawing.Size(208, 429);
+			this.fLP_Kalender.Size = new System.Drawing.Size(208, 194);
 			this.fLP_Kalender.TabIndex = 5;
 			// 
 			// label1
@@ -472,6 +475,14 @@
 			this.thrtehToolStripMenuItem.Name = "thrtehToolStripMenuItem";
 			this.thrtehToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
 			// 
+			// fLP_SharedCalender
+			// 
+			this.fLP_SharedCalender.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.fLP_SharedCalender.Location = new System.Drawing.Point(3, 447);
+			this.fLP_SharedCalender.Name = "fLP_SharedCalender";
+			this.fLP_SharedCalender.Size = new System.Drawing.Size(208, 229);
+			this.fLP_SharedCalender.TabIndex = 6;
+			// 
 			// frm_Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,6 +559,7 @@
         public System.Windows.Forms.Button btn_AddKalender;
 		private System.Windows.Forms.ContextMenuStrip contextMS_Termin;
 		private System.Windows.Forms.ToolStripMenuItem ContextMS_Item_EditTermin;
+		public System.Windows.Forms.FlowLayoutPanel fLP_SharedCalender;
 	}
 }
 
