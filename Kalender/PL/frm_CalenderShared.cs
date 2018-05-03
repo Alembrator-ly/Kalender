@@ -19,7 +19,9 @@ namespace Kalender.PL
 		DataAccessLayer DAL = new DataAccessLayer();
 		List<string> listIdUsersToShare = new List<string>();
 		int KalenderId;
-		public frm_CalenderShared()
+        DataTable Dt;
+
+        public frm_CalenderShared()
         {
             InitializeComponent();
         }
@@ -28,7 +30,7 @@ namespace Kalender.PL
 		{
 			//To Generate users checkbox to share Calender
 			string query = "select * from tbl_users where user_id <> "+Properties.Settings.Default.userId;
-			DataTable Dt = DAL.fetchData(query);
+			Dt = DAL.fetchData(query);
 			foreach (DataRow row in Dt.Rows )
 			{
 				CheckBox cb = new CheckBox();
@@ -53,16 +55,52 @@ namespace Kalender.PL
 
 		}
 
+        //TO Shared the Calendar
 		private void btn_Save_Click(object sender, EventArgs e)
 		{
+
 			KalenderId = frm_Main.getMainForm.KalenderId;
+                // list to add userrows, die die Kalender mit geteilet würde
+                List<DataRow> rowlist = new List<DataRow>();
+                
+                //Datarow fild
+                DataRow userRows;
+                //To Build a string with usersName and show it in message 
+                StringBuilder users = new StringBuilder();
+            StringBuilder userShared = new StringBuilder();
 			for (int i = 0; i < listIdUsersToShare.Count; i++)
 			{
-				string query = "insert into tbl_Shared (userId, kalenderId, Rechte) " +
-					"values ("+listIdUsersToShare[i]+","+KalenderId+",0)";
-				DAL.executing(query);
+                // Check if Calendar is Shared than don't shared again  
+                string checkIfShared = "select * from tbl_shared where userId = " + listIdUsersToShare[i] + " and kalenderId = " + KalenderId;
+                DataTable dtCheckIfShared = DAL.fetchData(checkIfShared);
+                if (dtCheckIfShared.Rows.Count > 0)
+                {
+                    DataRow userRow = Dt.AsEnumerable().SingleOrDefault(r => r.Field<int>("user_Id").ToString() == listIdUsersToShare[i]);
+                    userShared.Append(userRow["UserName"] + ",\n ");
+                    
+                }
+                else
+                {
+                    string query = "insert into tbl_Shared (userId, kalenderId, Rechte) " +
+                    "values (" + listIdUsersToShare[i] + "," + KalenderId + ",0)";
+                    DAL.executing(query);
+                    userRows = Dt.AsEnumerable().SingleOrDefault(r => r.Field<int>("user_Id").ToString() == listIdUsersToShare[i]);
+                    users.Append(userRows["userName"] + ",\n ");
+
+                }
 
 			}
+            if (userShared.Length>0)
+                MessageBox.Show("Kalender schon vorher geteilet mit\n \"" + userShared + "\"", "Kalender teilen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (users.Length>0)
+                MessageBox.Show("Kalender erfolgreich geteilet mit\n \"" + users + "\"", "Kalender teilen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+            this.Close();
 		}
-	}
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
 }

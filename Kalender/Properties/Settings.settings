@@ -12,7 +12,7 @@
       <Value Profile="(Default)">localhost</Value>
     </Setting>
     <Setting Name="dbName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">db_kalender</Value>
+      <Value Profile="(Default)">db_Kalender</Value>
     </Setting>
     <Setting Name="port" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">3306</Value>

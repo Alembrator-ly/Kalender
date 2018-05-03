@@ -22,6 +22,7 @@ namespace Kalender.PL
             dtp_TimeEnd.Value = DateTime.Now.AddHours(2);
             dtp_DateStart.Value = DateTime.Now;
             dtp_DateEnd.Value = DateTime.Now.AddDays(2);
+            
         }
 
         private void btn_CancelTermin_Click(object sender, EventArgs e)
@@ -37,46 +38,78 @@ namespace Kalender.PL
             {
                 cmb_Kalender.Items.Add(row["kalendername"]);
             }
+            cmb_Kalender.Text = Program.Kalender;
         }
 
         private void btn_AddTermin_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtb_TerminTitel.Text)&&!string.IsNullOrEmpty(cmb_Kalender.Text))
+            //To Update or Add a termin  
+            if (btn_AddTermin.Text != "Aktualisierung")
             {
-                // To save the value in variable and passed it in query
-                int result;
-                string titel = txtb_TerminTitel.Text;
-                string dateStarted = dtp_DateStart.Value.ToString("yyyy-MM-dd");
-                string timestarted = dtp_TimeStart.Value.ToString("HH:mm:ss");
-                string dateEnded = dtp_DateEnd.Value.ToString("yyyy-MM-dd");
-                string timeEnded = dtp_TimeEnd.Value.ToString("HH:mm:ss");
-                DataRow kalenderRow = Dt.AsEnumerable().SingleOrDefault(r => r.Field<string>("kalendername") == cmb_Kalender.Text);
-                int kalenderId = int.Parse(kalenderRow[0].ToString());
 
-                // to insert the date in database
-                string query = "insert into tbl_termin (`titel`,`started`,`ended`,`status`,`kalenderId`) " +
-                    "values('" + titel + "','" + dateStarted + " " + timestarted + "','" + dateEnded + " " + timeEnded + "',1," + kalenderId + ")";
-                try
+                
+                if (!string.IsNullOrEmpty(txtb_TerminTitel.Text) && !string.IsNullOrEmpty(cmb_Kalender.Text))
                 {
-                    DAL.executing(query, out result);
-                    if (result == 1)
+                    // To save the value in variable and passed it in query for Termin Tabel
+                    int result;
+                    string titel = txtb_TerminTitel.Text;
+                    string dateStarted = dtp_DateStart.Value.ToString("yyyy-MM-dd");
+                    string timestarted = dtp_TimeStart.Value.ToString("HH:mm:ss");
+                    string dateEnded = dtp_DateEnd.Value.ToString("yyyy-MM-dd");
+                    string timeEnded = dtp_TimeEnd.Value.ToString("HH:mm:ss");
+                    DataRow kalenderRow = Dt.AsEnumerable().SingleOrDefault(r => r.Field<string>("kalendername") == cmb_Kalender.Text);
+                    int kalenderId = int.Parse(kalenderRow[0].ToString());
+
+                    // to insert the date in database tabel tbl_Termin 
+                    string query = "insert into tbl_termin (`titel`,`started`,`ended`,`status`,`kalenderId`) " +
+                        "values('" + titel + "','" + dateStarted + " " + timestarted + "','" + dateEnded + " " + timeEnded + "',1," + kalenderId + ")";
+                    try
                     {
-                        MessageBox.Show("Neue Termin hizugefügt");
+                        DAL.executing(query, out result);
+                        if (result == 1)
+                        {
+                            MessageBox.Show("Neue Termin hizugefügt");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Fehlergeschlagen");
+                        }
                     }
-                    else
+                    catch (Exception)
                     {
-                        MessageBox.Show("Fehlergeschlagen");
+
+                        
                     }
                 }
-                catch (Exception)
+                else
                 {
-
-                    throw;
+                    MessageBox.Show("Der Termintitel und Kalender muss nicht leer sein");
                 }
             }
             else
             {
-                MessageBox.Show("Der Termintitel und Kalender muss nicht leer sein");
+                //Update Termin (check if my Termin is, than updated else SHow Message Can't Updated)
+                if (frm_Main.getMainForm.dgv_ContentTermin.CurrentRow.Cells["userName"].Value.ToString().ToLower() == Properties.Settings.Default.userName.ToLower())
+                {
+                    string dateStarted = dtp_DateStart.Value.ToString("yyyy-MM-dd");
+                    string timestarted = dtp_TimeStart.Value.ToString("HH:mm:ss");
+                    string dateEnded = dtp_DateEnd.Value.ToString("yyyy-MM-dd");
+                    string timeEnded = dtp_TimeEnd.Value.ToString("HH:mm:ss");
+                    DataRow kalenderRow = Dt.AsEnumerable().SingleOrDefault(r => r.Field<string>("kalendername") == cmb_Kalender.Text);
+                    int kalenderId = int.Parse(kalenderRow[0].ToString());
+
+                    int terminId = int.Parse(frm_Main.getMainForm.dgv_ContentTermin.CurrentRow.Cells["termin_id"].Value.ToString());
+                    string updateQuery = " update tbl_termin set Titel = '"+txtb_TerminTitel.Text+"', " +
+                        " started = '"+dateStarted+" "+timestarted+"', ended = '" + dateEnded + " " + timeEnded+"', kalenderId =  "+kalenderId +
+                        " where termin_Id = "+terminId;
+                    DAL.executing(updateQuery);
+                    MessageBox.Show("Termin aktualisiert", "Aktualisieren", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Getilet Kalender können Sie keine Termine bearbeiten oder löschen", "Informationen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

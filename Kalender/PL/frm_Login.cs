@@ -208,6 +208,50 @@ namespace Kalender.PL
 
         }
 
-
+        private void btn_CreateDatabase_Click(object sender, EventArgs e)
+        {
+            //DAL.executing("create Database if not exists db_Kalender; ");
+            //Properties.Settings.Default.dbName = "db_Kalender";
+            //Properties.Settings.Default.Save();
+            //string databaseQuery = "  CREATE TABLE `tbl_users` (" +
+            //                       " `user_Id` int(11) NOT NULL AUTO_INCREMENT, " +
+            //                       " `userName` varchar(100) NOT NULL, " +
+            //                       " `userPass` varchar(255) NOT NULL, " +
+            //                       " PRIMARY KEY(`user_Id`) ) " +
+            //                       " ENGINE = InnoDB AUTO_INCREMENT = 12 DEFAULT CHARSET = utf8; " +
+            //                       " CREATE TABLE `tbl_kalender` ( " +
+            //                       " `kalender_Id` int(11) NOT NULL AUTO_INCREMENT, " +
+            //                       " `kalenderName` varchar(255) DEFAULT NULL, " +
+            //                       " `userId` int(11) DEFAULT NULL, " +
+            //                       " `color` varchar(25) DEFAULT NULL, " +
+            //                       " PRIMARY KEY(`kalender_Id`), " +
+            //                       " KEY `userId` (`userId`), " +
+            //                       " CONSTRAINT `tbl_kalender_ibfk_1` FOREIGN KEY(`userId`) REFERENCES `tbl_users` (`user_Id`) " +
+            //                       " ON DELETE CASCADE) " +
+            //                       " ENGINE = InnoDB AUTO_INCREMENT = 12 DEFAULT CHARSET = utf8; " +
+            //                       " " +
+            //                       " CREATE TABLE `tbl_shared` ( " +
+            //                       " `userId` int(11) DEFAULT NULL, " +
+            //                       " `kalenderId` int(11) DEFAULT NULL, " +
+            //                       " `Rechte` tinyint(4) NOT NULL, " +
+            //                       " KEY `userId` (`userId`), " +
+            //                       " KEY `kalenderId` (`kalenderId`), " +
+            //                       " CONSTRAINT `tbl_shared_ibfk_1` FOREIGN KEY(`userId`) REFERENCES `tbl_users` (`user_Id`) ON DELETE CASCADE, " +
+            //                       "  CONSTRAINT `tbl_shared_ibfk_2` FOREIGN KEY(`kalenderId`) REFERENCES `tbl_kalender` (`kalender_Id`) ON DELETE CASCADE) " +
+            //                       " ENGINE = InnoDB DEFAULT CHARSET = utf8;  " +
+            //                       " " +
+            //                       " CREATE TABLE `tbl_termin` ( " +
+            //                       " `termin_Id` int(11) NOT NULL AUTO_INCREMENT, " +
+            //                       " `Titel` varchar(255) DEFAULT NULL, " +
+            //                       " `started` datetime DEFAULT NULL, " +
+            //                       " `ended` datetime DEFAULT NULL, " +
+            //                       " `status` tinyint(4) DEFAULT NULL, " +
+            //                       " `kalenderId` int(11) DEFAULT NULL, " +
+            //                       " PRIMARY KEY(`termin_Id`), " +
+            //                       " KEY `kalenderId` (`kalenderId`), " +
+            //                       " CONSTRAINT `tbl_termin_ibfk_1` FOREIGN KEY(`kalenderId`) REFERENCES `tbl_kalender` (`kalender_Id`) ON DELETE CASCADE ) " +
+            //                       " ENGINE = InnoDB AUTO_INCREMENT = 23 DEFAULT CHARSET = utf8; ";
+            //DAL.executing(databaseQuery);
+        }
     }
 }

@@ -29,9 +29,16 @@ namespace Kalender.BL
             cbTitel = _cbTitel;
         }
 
-		
 
 
+        /// <summary>
+        /// TO Generate the CheckBox for Calendar
+        /// </summary>
+        /// <param name="red">color als integar</param>
+        /// <param name="green">color als integar</param>
+        /// <param name="blue">color als integar</param>
+        /// <param name="_cbName">the Name of the CheckBox to used in a Code</param>
+        /// <param name="_cbTitel">the Name of the CheckBox to used in a Code</param>
         public void cmbGenrator(int red,int green,int blue,string _cbName, string _cbTitel)
         {
             cbName = _cbName;
@@ -68,8 +75,8 @@ namespace Kalender.BL
             }
         }
 
-
-		private void Item_MouseHover(object sender, EventArgs e)
+        // Event when thr Mouse on the CheckBox
+        private void Item_MouseHover(object sender, EventArgs e)
         {
 
             CheckBox cb = (CheckBox)sender;
@@ -77,7 +84,7 @@ namespace Kalender.BL
             cbTitel = cb.Text;
 
         }
-
+        // Event when the CheckBox Selected is
         private void Cb_Selected(object sender, EventArgs e)
         {
             DataTable DtShowTermin = new DataTable();

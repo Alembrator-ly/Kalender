@@ -102,13 +102,27 @@ namespace Kalender.DAL
         /// <returns></returns>
         public MySqlConnection myConnection()
         {
-            MySqlConnectionStringBuilder ConnectionSB = new MySqlConnectionStringBuilder();
-            ConnectionSB.Server = Properties.Settings.Default.host;
-            ConnectionSB.Database = Properties.Settings.Default.dbName;
-            ConnectionSB.Port = Properties.Settings.Default.port;
-            ConnectionSB.UserID = Properties.Settings.Default.db_userID;
-            ConnectionSB.Password = Properties.Settings.Default.userPassword;
-            string cs = ConnectionSB.ToString();
+            string cs;
+            if (Properties.Settings.Default.dbName=="")
+            {
+                MySqlConnectionStringBuilder ConnectionSB = new MySqlConnectionStringBuilder();
+                ConnectionSB.Server = Properties.Settings.Default.host;
+                ConnectionSB.Port = Properties.Settings.Default.port;
+                ConnectionSB.UserID = Properties.Settings.Default.db_userID;
+                ConnectionSB.Password = Properties.Settings.Default.userPassword;
+                cs = ConnectionSB.ToString();
+            }
+            else
+            {
+
+                MySqlConnectionStringBuilder ConnectionSB = new MySqlConnectionStringBuilder();
+                ConnectionSB.Server = Properties.Settings.Default.host;
+                ConnectionSB.Database = Properties.Settings.Default.dbName;
+                ConnectionSB.Port = Properties.Settings.Default.port;
+                ConnectionSB.UserID = Properties.Settings.Default.db_userID;
+                ConnectionSB.Password = Properties.Settings.Default.userPassword;
+                cs = ConnectionSB.ToString();
+            }
             return new MySqlConnection(cs);
         }
         /// <summary>
@@ -125,10 +139,15 @@ namespace Kalender.DAL
             cmd.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// to Select the last Id from the Tabel and set the the id for next row
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public int rowCount(string query)
         {
-             DataTable Dt = new DataTable();
-        Dt = new DataTable();
+            DataTable Dt = new DataTable();
+            Dt = new DataTable();
             MySqlDataAdapter Da = new MySqlDataAdapter(query, myConnection());
             Da.Fill(Dt);
             id = int.Parse( Dt.Rows[0][0].ToString());

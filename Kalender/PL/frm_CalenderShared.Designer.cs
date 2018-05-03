@@ -48,6 +48,7 @@
 			this.btn_Cancel.TabIndex = 1;
 			this.btn_Cancel.Text = "Abbrechen";
 			this.btn_Cancel.UseVisualStyleBackColor = true;
+			this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
 			// 
 			// btn_Save
 			// 
@@ -67,6 +68,8 @@
 			this.Controls.Add(this.btn_Save);
 			this.Controls.Add(this.btn_Cancel);
 			this.Controls.Add(this.fLP_UsersShared);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
 			this.Name = "frm_CalenderShared";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Kalender teilen";

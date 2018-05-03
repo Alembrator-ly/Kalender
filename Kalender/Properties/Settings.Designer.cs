@@ -61,7 +61,7 @@ namespace Kalender.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("db_kalender")]
+        [global::System.Configuration.DefaultSettingValueAttribute("db_Kalender")]
         public string dbName {
             get {
                 return ((string)(this["dbName"]));

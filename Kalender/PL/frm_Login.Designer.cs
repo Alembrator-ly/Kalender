@@ -34,6 +34,7 @@
             this.lbl_Password = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
             this.btn_Rigester = new System.Windows.Forms.Button();
+            this.btn_CreateDatabase = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_UserName
@@ -99,11 +100,24 @@
             this.btn_Rigester.UseVisualStyleBackColor = true;
             this.btn_Rigester.Click += new System.EventHandler(this.btn_Rigester_Click);
             // 
+            // btn_CreateDatabase
+            // 
+            this.btn_CreateDatabase.Location = new System.Drawing.Point(364, 13);
+            this.btn_CreateDatabase.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_CreateDatabase.Name = "btn_CreateDatabase";
+            this.btn_CreateDatabase.Size = new System.Drawing.Size(161, 38);
+            this.btn_CreateDatabase.TabIndex = 6;
+            this.btn_CreateDatabase.Text = "Datenbank Erstellen";
+            this.btn_CreateDatabase.UseVisualStyleBackColor = true;
+            this.btn_CreateDatabase.Visible = false;
+            this.btn_CreateDatabase.Click += new System.EventHandler(this.btn_CreateDatabase_Click);
+            // 
             // frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 306);
+            this.Controls.Add(this.btn_CreateDatabase);
             this.Controls.Add(this.btn_Rigester);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.txtb_Password);
@@ -129,5 +143,6 @@
         private System.Windows.Forms.Label lbl_Password;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.Button btn_Rigester;
+        private System.Windows.Forms.Button btn_CreateDatabase;
     }
 }
